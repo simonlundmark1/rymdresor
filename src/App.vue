@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Hem</router-link>
-      <router-link to="/booking">Boka Upplevelse</router-link>
-      <router-link to="/packages">Paket Erbjudanden</router-link>
-    </nav>
     <router-view />
     <footer>
       <p>&copy; 2024 Rymdresor AB</p>
@@ -13,6 +8,14 @@
 </template>
 
 <style>
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #333;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
@@ -20,7 +23,7 @@
 }
 
 nav {
-  background-color: #333;
+  background-color: transparent;
   padding: 1em;
 }
 
@@ -38,5 +41,7 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+  margin: 0;
+
 }
 </style>
