@@ -1,7 +1,6 @@
 <template>
-  <div>
+  <div :style="backgroundImageStyle" class="experience-container">
     <h2>{{ experience?.title }}</h2>
-    <img :src="experience?.image" alt="Experience image" />
     <p>{{ experience?.description }}</p>
     <h3>Resor:</h3>
     <ul>
@@ -21,7 +20,7 @@ export default defineComponent({
   name: 'SpaceExperienceDetail',
   data() {
     return {
-      experience: null as any
+      experience: null as any,
     };
   },
   async created() {
@@ -30,13 +29,26 @@ export default defineComponent({
     const res = await fetch('/src/data/data.json');
     const data = await res.json();
     this.experience = data.experiences.find((exp: any) => exp.id == id);
-  }
+  },
+  computed: {
+    backgroundImageStyle() {
+      if (this.experience?.image) {
+        return {
+          backgroundImage: `url(${this.experience.image})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        };
+      }
+      return {};
+    },
+  },
 });
 </script>
 
 <style scoped>
-img {
-  max-width: 100%;
-  height: auto;
+.experience-container {
+  border: 2px solid #ccc;
+  padding: 20px;
+  color: #333;
 }
 </style>

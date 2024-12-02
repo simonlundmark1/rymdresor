@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="package-hero">
+    <Navbar/>
     <h2>Paket Erbjudanden</h2>
     <div v-for="pkg in pkgs" :key="pkg.id" class="pkg-card">
       <h3>{{ pkg.title }}</h3>
@@ -11,9 +12,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import Navbar from '../components/Navbar.vue';
 
 export default defineComponent({
   name: 'PackagePage',
+  components: {
+    Navbar
+  },
   data() {
     return {
       pkgs: [
@@ -45,6 +50,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.package-hero{
+  background-image: url('/john-towner-7rlIPXTR6OI-unsplash.jpg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
 .pkg-card {
   border: 1px solid #ccc;
   padding: 16px;

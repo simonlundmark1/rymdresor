@@ -1,35 +1,54 @@
 {
-    "experiences": [
-      {
-        "id": 1,
-        "title": "Utflykt till månen",
-        "description": "Gå i Neil Armstrongs fotspår och upplev månens yta.",
-        "image": "/assets/moon.jpg",
-        "availableTrips": [
-          { "date": "2024-07-15", "price": 1000000 },
-          { "date": "2024-08-10", "price": 1050000 }
-        ]
-      },
-      {
-        "id": 2,
-        "title": "Rymdpromenad i omloppsbana",
-        "description": "Ta en promenad i rymdens oändlighet med en utsikt över jorden.",
-        "image": "/assets/orbit.jpg",
-        "availableTrips": [
-          { "date": "2024-06-01", "price": 750000 },
-          { "date": "2024-07-01", "price": 800000 }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "Stationär resa till Mars",
-        "description": "Res till vår grannplanet och utforska Mars.",
-        "image": "/assets/mars.jpg",
-        "availableTrips": [
-          { "date": "2024-09-10", "price": 1500000 },
-          { "date": "2024-10-20", "price": 1550000 }
-        ]
-      }
-    ]
-  }
-  
+  "experiences": [
+    {
+      "id": 1,
+      "title": "Renässansen i Florens",
+      "description": "Besök renässansens höjdpunkt och upplev mästerverk av Leonardo da Vinci och Michelangelo.",
+      "image": "/renaissance.jpg",
+      "availableTrips": [
+        { "date": "1475-04-15", "price": 120000 },
+        { "date": "1490-06-10", "price": 130000 }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Vikingatiden i Skandinavien",
+      "description": "Segla med vikingaskepp och delta i en traditionell blotceremoni.",
+      "image": "/viking.jpg",
+      "availableTrips": [
+        { "date": "900-08-01", "price": 100000 },
+        { "date": "950-09-15", "price": 110000 }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Franska revolutionen i Paris",
+      "description": "Bevittna historiens gång och delta i folkmassorna under revolutionens dagar.",
+      "image": "/revolution.jpg",
+      "availableTrips": [
+        { "date": "1789-07-14", "price": 140000 },
+        { "date": "1793-01-21", "price": 145000 }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Juraperioden - dinosauriernas tid",
+      "description": "Utforska en värld fylld av dinosaurier och spännande växter.",
+      "image": "/jurassic.jpg",
+      "availableTrips": [
+        { "date": "150000000-05-01", "price": 200000 },
+        { "date": "145000000-09-10", "price": 210000 }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Antikens Egypten",
+      "description": "Bygg pyramiderna och lär dig hieroglyfernas hemligheter.",
+      "image": "/egypt.jpg",
+      "availableTrips": [
+        { "date": "2500-01-01 BC", "price": 160000 },
+        { "date": "2400-06-15 BC", "price": 165000 }
+      ]
+    }
+  ]
+}
