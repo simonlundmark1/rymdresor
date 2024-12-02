@@ -2,7 +2,7 @@
   <div class="home-hero">
     <Navbar/>
     <div class="section-1 section">
-      <h1 class="hero-title">Välkommen till Rymdresor</h1>
+      <h1 class="hero-title">Välkommen till Tidsresor</h1>
     </div>
   </div>
   <space-experience-list :experiences="experiences" />
@@ -33,9 +33,6 @@ export default defineComponent({
 </script>
 
 <style>
-body{
-  color: white !important;
-}
 .home-hero{
   background-image: url('/massimiliano-morosinotto-MljwsnGwdOY-unsplash.jpg');
   background-position: top;
@@ -55,5 +52,15 @@ body{
 .hero-title{
   font-size: 80px;
   animation: fadeIn 1s ease-in-out, slideUp 1s ease-in-out;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+
+
+
+  .hero-title{
+    font-size: 40px !important;
+  }
 }
 </style>
