@@ -16,6 +16,7 @@ body {
   min-height: 100vh;
   background-color: #333;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

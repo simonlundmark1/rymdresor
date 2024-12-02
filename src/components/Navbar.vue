@@ -64,6 +64,7 @@ export default defineComponent({
 <style scoped>
 nav {
   width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -74,10 +75,11 @@ nav {
 }
 
 .nav-items {
-  padding: 0 2rem;
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
+  flex-wrap: wrap; 
 }
 
 .nav-links {
