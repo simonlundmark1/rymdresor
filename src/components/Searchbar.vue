@@ -1,50 +1,31 @@
 <template>
   <div id="app">
-    <h1>Search Bar Example</h1>
+ 
     <input
-      v-model="searchQuery"
+      :value = "searchQuery"
       type="text"
       placeholder="Search..."
-      @input="handleSearch"
+      @input="handleInput"
     />
-    <ul>
-      <li v-for="item in filteredItems" :key="item">
-        {{ item }}
-      </li>
-    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      searchQuery: "",
-      experiences: [], 
-    };
-  },
-  computed: {
-    filteredItems() {
-      const query = this.searchQuery.toLowerCase();
-      return this.experiences.filter((item) =>
-        item.toLowerCase().includes(query)
-      );
-    },
-  },
-  methods: {
-    handleSearch() {
-      console.log("Searching for:", this.searchQuery);
-    },
-  },
-  async created() {
-    try {
-      const res = await fetch("/src/data/data.json");
-      const data = await res.json();
-      this.experiences = data.experiences;
-    } catch (error) {
-      console.error("Failed to fetch data:", error);
+  props: {
+    searchQuery: {
+      type: String,
+      default: '',
+    
     }
   },
+  methods: {
+      
+    handleInput(event) {
+      this.$emit('update-query', event.target.value);
+    }
+  }
+  
 };
 </script>
 

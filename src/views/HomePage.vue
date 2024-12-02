@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>Välkommen till Rymdresor</h1>
-     <searchbar />
-    <space-experience-list :experiences="experiences" />
+     <searchbar  :search-query="searchQuery" @update-query="updateSearchQuery"/>
+    <space-experience-list :experiences="filteredItems" />
   </div>
 </template>
 
@@ -18,13 +18,31 @@ export default defineComponent({
      Searchbar },
   data() {
     return {
+         searchQuery: "",
       experiences: [] as any[]
     };
-  },
-  async created() {
-    const res = await fetch('/src/data/data.json');
-    const data = await res.json();
-    this.experiences = data.experiences;
+  },  computed: {
+    filteredItems() {
+  const query = this.searchQuery.trim().toLowerCase(); 
+    return this.experiences.filter((experience) =>
+      experience.title.toLowerCase().includes(query)
+    );
   }
+  },
+  methods: {  updateSearchQuery(newQuery: string) {
+    this.searchQuery = newQuery;
+  }
+  },
+ async created() {
+  try {
+    const res = await fetch("/src/data/data.json");
+    const data = await res.json();
+    console.log("Fetched experiences:", data.experiences); 
+    this.experiences = data.experiences;
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+  }
+}
+ 
 });
 </script>
