@@ -2,7 +2,7 @@
   <div id="app">
     <router-view />
     <footer>
-      <p>&copy; 2024 Rymdresor AB</p>
+      <p>&copy; 2024 Tidsresor AB</p>
     </footer>
   </div>
 </template>
@@ -15,6 +15,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #333;
+  overflow-x: hidden;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

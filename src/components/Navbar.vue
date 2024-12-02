@@ -2,14 +2,12 @@
     <nav>
       <div class="nav-items">
         <h2>Tidsresor</h2>
-        <!-- Hamburger Icon -->
         <button class="hamburger" @click="toggleMenu">
           <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
-      <!-- Mobile Menu -->
       <div class="nav-links" :class="{ open: isMenuOpen }">
         <router-link
           class="nav-link"
