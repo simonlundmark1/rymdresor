@@ -38,9 +38,7 @@ footer {
   color: #fff;
   text-align: center;
   padding: 1em;
-  position: fixed;
   width: 100%;
-  bottom: 0;
   margin: 0;
 
 }

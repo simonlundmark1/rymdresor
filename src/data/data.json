@@ -4,7 +4,7 @@
         "id": 1,
         "title": "Utflykt till månen",
         "description": "Gå i Neil Armstrongs fotspår och upplev månens yta.",
-        "image": "/assets/moon.jpg",
+        "image": "/moon.jpg",
         "availableTrips": [
           { "date": "2024-07-15", "price": 1000000 },
           { "date": "2024-08-10", "price": 1050000 }
@@ -14,7 +14,7 @@
         "id": 2,
         "title": "Rymdpromenad i omloppsbana",
         "description": "Ta en promenad i rymdens oändlighet med en utsikt över jorden.",
-        "image": "/assets/orbit.jpg",
+        "image": "/orbit.jpg",
         "availableTrips": [
           { "date": "2024-06-01", "price": 750000 },
           { "date": "2024-07-01", "price": 800000 }
@@ -24,7 +24,7 @@
         "id": 3,
         "title": "Stationär resa till Mars",
         "description": "Res till vår grannplanet och utforska Mars.",
-        "image": "/assets/mars.jpg",
+        "image": "/mars.jpg",
         "availableTrips": [
           { "date": "2024-09-10", "price": 1500000 },
           { "date": "2024-10-20", "price": 1550000 }

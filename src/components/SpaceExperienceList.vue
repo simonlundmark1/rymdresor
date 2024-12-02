@@ -1,45 +1,69 @@
 <template>
-    <div>
-      <h2>Våra rymdupplevelser</h2>
-      <div v-for="experience in experiences" :key="experience.id" class="experience-card">
-        <img :src="experience.image" alt="Experience image" />
-        <h3>{{ experience.title }}</h3>
-        <p>{{ experience.description }}</p>
-        <button @click="viewDetails(experience.id)">Utforska</button>
-      </div>
-    </div>
-  </template>
-  
-  <script lang="ts">
-  import { defineComponent } from 'vue';
-  
-  export default defineComponent({
-    name: 'SpaceExperienceList',
-    props: {
-      experiences: {
-        type: Array,
-        required: true
-      }
+  <div
+      v-for="experience in experiences"
+      :key="experience.id"
+      class="experience-card"
+      :style="getBackgroundStyle(experience.image)"
+      >
+      <h2>{{ experience.title }}</h2>
+      <p>{{ experience.description }}</p>
+      <button @click="viewDetails(experience.id)">Utforska</button>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'SpaceExperienceList',
+  props: {
+    experiences: {
+      type: Array,
+      required: true,
     },
-    methods: {
-      viewDetails(id: number) {
-        this.$router.push(`/experience/${id}`);
+  },
+  methods: {
+    viewDetails(id: number) {
+      this.$router.push(`/experience/${id}`);
+    },
+    getBackgroundStyle(imageUrl: string | null) {
+      if (imageUrl) {
+        return {
+          backgroundImage: `url(${imageUrl})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        };
       }
-    }
-  });
-  </script>
-  
-  <style scoped>
-  .experience-card {
-    border: 1px solid #ccc;
-    padding: 16px;
-    margin: 16px;
-    border-radius: 8px;
-    text-align: center;
+      return {
+        height: '200px', // Om ingen bild finns, bibehåll höjden
+        backgroundColor: '#f0f0f0', // Alternativ bakgrundsfärg
+        borderRadius: '8px',
+      };
+    },
+  },
+});
+</script>
+
+<style scoped>
+  .experience-card{
+    padding: 0;
+    margin: 0;
+    height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
   }
-  .experience-card img {
-    max-width: 100%;
-    height: auto;
+  h2{
+    font-size: 60px;
   }
-  </style>
-  
+  button{
+    background: none;
+    border: none;
+    color: white;
+
+  }
+  button:hover{
+    cursor: pointer;
+  }
+</style>
