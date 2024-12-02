@@ -1,11 +1,9 @@
 <template>
   <div class="home-hero">
     <Navbar/>
-    <h1>Välkommen till Rymdresor</h1>
-    <space-experience-list :experiences="experiences" />
+    <h1 class="hero-title">Välkommen till Tidsresor</h1>
   </div>
-  <searchbar  :search-query="searchQuery" @update-query="updateSearchQuery"/>
-  <space-experience-list :experiences="filteredItems" />
+  <space-experience-list :experiences="experiences" />
 </template>
 
 <script lang="ts">
