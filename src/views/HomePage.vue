@@ -10,7 +10,6 @@
 import { defineComponent } from 'vue';
 import SpaceExperienceList from '../components/SpaceExperienceList.vue';
 import Searchbar from '../components/Searchbar.vue';
-
 import Navbar from '../components/Navbar.vue'
 
 export default defineComponent({
@@ -73,8 +72,6 @@ export default defineComponent({
 }
 
 @media (max-width: 768px) {
-
-
 
   .hero-title{
     font-size: 40px !important;
