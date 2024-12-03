@@ -7,7 +7,12 @@
           <span></span>
           <span></span>
         </button>
-        <input type="text">
+        <input type="text"
+        v.onKeyup.enter="searchForExperience"
+        v-model="searchQuery"
+        @keyup.enter="emitSearch"
+        placeholder="Search..."
+       >
       </div>
       <div class="nav-links" :class="{ open: isMenuOpen }">
         <router-link
@@ -38,7 +43,7 @@
     </nav>
 </template>  
 
-<script lang="ts">
+<script lang="ts" >
 import { defineComponent, ref } from "vue";
 import { useRoute } from "vue-router";
 import '../style/components/Navbar.css';
@@ -56,6 +61,10 @@ export default defineComponent({
     const closeMenu = () => {
       isMenuOpen.value = false;
     };
+    const emitSearch =() => {
+     emit('search', searchQuery);
+    }
+
 
     return { route, isMenuOpen, toggleMenu, closeMenu };
   },
