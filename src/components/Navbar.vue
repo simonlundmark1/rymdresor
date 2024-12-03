@@ -23,7 +23,7 @@
           exact-active-class="active-link"
           @click="closeMenu"
         >
-          Boka Upplevelse
+          Boka
         </router-link>
         <router-link
           class="nav-link"
@@ -31,7 +31,7 @@
           exact-active-class="active-link"
           @click="closeMenu"
         >
-          Paket Erbjudanden
+          Paket
         </router-link>
       </div>
     </nav>
@@ -40,7 +40,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useRoute } from "vue-router";
-import '../style/components/navbar.css';
+import '../style/components/Navbar.css';
 
 export default defineComponent({
   name: "Navbar",
@@ -60,3 +60,9 @@ export default defineComponent({
   },
 });
 </script>
+
+
+<style scoped>
+
+
+</style>

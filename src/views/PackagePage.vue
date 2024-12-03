@@ -13,6 +13,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Navbar from '../components/Navbar.vue';
+import '../style/view/PackagePage.css';
 
 export default defineComponent({
   name: 'PackagePage',
@@ -50,16 +51,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.package-hero{
-  background-image: url('/john-towner-7rlIPXTR6OI-unsplash.jpg');
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
-.pkg-card {
-  border: 1px solid #ccc;
-  padding: 16px;
-  margin: 16px;
-}
+
 </style>
