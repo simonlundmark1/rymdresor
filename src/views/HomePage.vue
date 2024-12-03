@@ -24,12 +24,11 @@ export default defineComponent({
       experiences: [] as any[]
     };
   },  
-  methods: {  updateSearchQuery(newQuery: string) {
-    this.searchQuery = newQuery;
-  },
-  handleSearch(query:string) {
+  methods: {  
+handleSearch(query: string) {
+      this.searchQuery = query;
       this.searchForExperience(query);
-  },
+    },
 
      searchForExperience(query:string) {
       const searchQuery = query.trim().toLowerCase();
