@@ -9,13 +9,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import SpaceExperienceList from '../components/SpaceExperienceList.vue';
-import Searchbar from '../components/Searchbar.vue';
+
 import Navbar from '../components/Navbar.vue'
 
 export default defineComponent({
   name: 'HomePage',
   components: { SpaceExperienceList,
-     Searchbar,
+   
      Navbar },
   data() {
     return {

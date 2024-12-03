@@ -7,6 +7,7 @@
           <span></span>
           <span></span>
         </button>
+        <input type="text">
       </div>
       <div class="nav-links" :class="{ open: isMenuOpen }">
         <router-link
