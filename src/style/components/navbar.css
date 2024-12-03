@@ -1,36 +1,23 @@
 nav {
     width: 100%;
-    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: transparent;
     color: white;
     animation: fadeIn 1s ease-in-out;
-    position: relative;
-  }
-
-  nav {
-    background-color: transparent;
-    padding: 1em;
+    padding: 2rem;
   }
   
-  nav a {
-    color: #fff;
-    margin-right: 1em;
-    text-decoration: none;
-  }
   .nav-items {
-    width: 100%;
     display: flex;
     align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap; 
   }
   
   .nav-links {
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
+    align-items: center;
   }
   
   .hamburger {
@@ -50,7 +37,6 @@ nav {
   }
   
   .nav-links.open {
-    display: flex;
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -67,13 +53,9 @@ nav {
     color: white;
   }
   
-  .nav-link:hover {
-    text-decoration: underline;
-  }
-  
+  .nav-link:hover,
   .active-link {
     text-decoration: underline;
-    color: white;
   }
   
   /* Responsive Design */
@@ -86,3 +68,4 @@ nav {
       display: none;
     }
   }
+  
