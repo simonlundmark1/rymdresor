@@ -33,14 +33,15 @@
 
 <template>
     <section class="cartWrapper">
+        <h1>Cart</h1>
         <ul>
-            <li v-for="item in cartItems" :key="item.id">
+            <!-- <li v-for="item in cartItems" :key="item.id">
                 <span>{{ item.name }}</span>
                 <span>{{ item.price }}</span>
                 <span>{{ item.quantity }}</span>
                 <button @click="removeFromCart(item.id)">-</button>
                 <button @click="addToCart(item.id)">+</button>
-            </li>
+            </li> -->
         </ul>
         <button @click="clearCart">Clear Cart</button>
 
@@ -49,5 +50,12 @@
 </template>
 
 <style scoped>
-
+    .cartWrapper {
+        height: 500px;
+        width: 300px;
+        background-color: red;
+        position: absolute;
+        top: 100px;
+        right: 100px;
+    }
 </style>

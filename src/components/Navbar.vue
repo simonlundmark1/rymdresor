@@ -34,36 +34,54 @@
         >
           Paket
         </router-link>
+        <p @click="openCartWidget" class="cart-link">Cart</p>
       </div>
+      <CartWidget  v-if="isCartOpen" />
     </nav>
 </template>  
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import { useRoute } from "vue-router";
-import '../style/components/Navbar.css';
+  import { defineComponent, ref } from "vue";
+  import { useRoute } from "vue-router";
+  import CartWidget from './CartWidget.vue';
+  import '../style/components/Navbar.css';
 
-export default defineComponent({
-  name: "Navbar",
-  setup() {
-    const route = useRoute();
-    const isMenuOpen = ref(false);
+  export default defineComponent({
+    name: "Navbar",
+    components: {
+      CartWidget,
+    },
+    setup() {
+      const route = useRoute();
+      const isMenuOpen = ref(false);
+      let isCartOpen = ref(false);
 
-    const toggleMenu = () => {
-      isMenuOpen.value = !isMenuOpen.value;
-    };
+      const toggleMenu = () => {
+        isMenuOpen.value = !isMenuOpen.value;
+      };
 
-    const closeMenu = () => {
-      isMenuOpen.value = false;
-    };
+      const closeMenu = () => {
+        isMenuOpen.value = false;
+      };
 
-    return { route, isMenuOpen, toggleMenu, closeMenu };
-  },
-});
+      const openCartWidget = () => {
+        isCartOpen.value = !isCartOpen.value;
+      };
+
+      return { route, isMenuOpen, toggleMenu, closeMenu, isCartOpen, openCartWidget, };
+    },
+  });
+
+
+
+
+
 </script>
 
 
 <style scoped>
-
+  .cart-link {
+    cursor: pointer;
+  }
 
 </style>
