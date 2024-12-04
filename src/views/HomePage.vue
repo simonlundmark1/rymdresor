@@ -1,24 +1,22 @@
 <template>
   <div class="home-hero">
     <Navbar/>
-    <h1>Välkommen till Rymdresor</h1>
-    <space-experience-list :experiences="experiences" />
+    <h1 class="hero-title">Välkommen till Tidsresor</h1>
   </div>
-  <searchbar  :search-query="searchQuery" @update-query="updateSearchQuery"/>
-  <space-experience-list :experiences="filteredItems" />
+  <space-experience-list :experiences="experiences" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import SpaceExperienceList from '../components/SpaceExperienceList.vue';
-import Searchbar from '../components/Searchbar.vue';
 
 import Navbar from '../components/Navbar.vue'
+import '../style/view/HomePage.css'
 
 export default defineComponent({
   name: 'HomePage',
   components: { SpaceExperienceList,
-     Searchbar,
+   
      Navbar },
   data() {
     return {
@@ -52,34 +50,5 @@ export default defineComponent({
 </script>
 
 <style>
-.home-hero{
-  background-image: url('/massimiliano-morosinotto-MljwsnGwdOY-unsplash.jpg');
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
 
-.section-1{
-  width: 100%;
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-title{
-  font-size: 80px;
-  animation: fadeIn 1s ease-in-out, slideUp 1s ease-in-out;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-
-
-
-  .hero-title{
-    font-size: 40px !important;
-  }
-}
 </style>
