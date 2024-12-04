@@ -4,7 +4,7 @@
 
 <template>
     <section class="cartWrapper">
-        
+
     </section>
 </template>
 
