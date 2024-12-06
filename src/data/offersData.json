@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Resan till Neo-Utopia: En Stadsresa i År 2150",
+    "description": "En framtid där mänskligheten har skapat en perfekt balans mellan teknologi, natur och samhälle. I Neo-Utopia, en stad som svävar fritt ovanför jorden, har vi övervunnit alla problem som vi i dagens värld står inför. Här är ingen fattigdom, inga konflikter, och naturen är i perfekt harmoni med de futuristiska byggnaderna som sträcker sig mot himlen.",
+    "image": "santa.jpg",
+    "food": "All Inclusive"
+  },
+  {
+    "id": 2,
+    "title": "År 2006: En smakfull resa tillbaka i tiden",
+    "description": "Året är 2006, Spotify är bara en idé, Facebook börjar ta fart globalt, och världen fascineras av Pluto som degraderas från planet till dvärgplanet. Sverige jublar över framgångar i fotbolls-VM och melodifestivalen, medan nostalgiska vinterkvällar fylls av matmagi. 2006 var året då teknologin tog fart, men inget kunde slå enkelheten i en Findus Jultallrik",
+    "image": "drinks.jpg",
+    "food": "All Inclusive"
+  },
+  {
+    "id": 3,
+    "title": "Tesla och den elektriska framtiden, Chicago",
+    "description": "Återvänd till det sena 1800-talet för att möta en av historiens mest visionära och excentriska uppfinnare, Nikola Tesla! Året är 1893, och Tesla demonstrerar sin banbrytande växelströmsteknologi under världens första elektriska världsutställning i Chicago.",
+    "image": "train.jpg",
+    "food": "All Inclusive"
+  },
+  {
+    "id": 4,
+    "title": "År 2006: En smakfull resa tillbaka i tiden",
+    "description": "Året är 2006, Spotify är bara en idé, Facebook börjar ta fart globalt, och världen fascineras av Pluto som degraderas från planet till dvärgplanet. Sverige jublar över framgångar i fotbolls-VM och melodifestivalen, medan nostalgiska vinterkvällar fylls av matmagi. 2006 var året då teknologin tog fart, men inget kunde slå enkelheten i en Findus Jultallrik",
+    "image": "drinks.jpg",
+    "food": "All Inclusive"
+  }
+]
