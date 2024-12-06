@@ -1,9 +1,10 @@
 <template>
   <div
-      v-for="experience in experiences"
-      :key="experience.id"
-      class="experience-card"
-      :style="getBackgroundStyle(experience.image)"
+       v-for="(experience, index) in experiences"
+    :key="experience.id"
+    :data-ref="'experience-' + index"
+    class="experience-card"
+    :style="getBackgroundStyle(experience.image)"
       >
       <h2>{{ experience.title }}</h2>
       <p>{{ experience.description }}</p>
