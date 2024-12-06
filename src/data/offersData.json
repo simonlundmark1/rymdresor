@@ -1,30 +1,50 @@
 [
   {
     "id": 1,
-    "title": "Resan till Neo-Utopia: En Stadsresa i År 2150",
+    "title": "Neo-Utopia, en stadsresa år 2150",
     "description": "En framtid där mänskligheten har skapat en perfekt balans mellan teknologi, natur och samhälle. I Neo-Utopia, en stad som svävar fritt ovanför jorden, har vi övervunnit alla problem som vi i dagens värld står inför. Här är ingen fattigdom, inga konflikter, och naturen är i perfekt harmoni med de futuristiska byggnaderna som sträcker sig mot himlen.",
-    "image": "santa.jpg",
-    "food": "All Inclusive"
+    "image": "carousel.jpg",
+    "food": "All Inclusive",
+    "discount": "-50%",
+    "availableTrips": [
+      { "date": "2150-04-15", "price": 176000 },
+      { "date": "2150-07-10", "price": 190000 }
+    ]
   },
   {
     "id": 2,
-    "title": "År 2006: En smakfull resa tillbaka i tiden",
+    "title": "År 2006, en smakfull resa",
     "description": "Året är 2006, Spotify är bara en idé, Facebook börjar ta fart globalt, och världen fascineras av Pluto som degraderas från planet till dvärgplanet. Sverige jublar över framgångar i fotbolls-VM och melodifestivalen, medan nostalgiska vinterkvällar fylls av matmagi. 2006 var året då teknologin tog fart, men inget kunde slå enkelheten i en Findus Jultallrik",
     "image": "drinks.jpg",
-    "food": "All Inclusive"
+    "food": "All Inclusive",
+    "discount": "-30%",
+    "availableTrips": [
+      { "date": "2006-12-02", "price": 125000 },
+      { "date": "2006-12-20", "price": 139000 }
+    ]
   },
   {
     "id": 3,
-    "title": "Tesla och den elektriska framtiden, Chicago",
-    "description": "Återvänd till det sena 1800-talet för att möta en av historiens mest visionära och excentriska uppfinnare, Nikola Tesla! Året är 1893, och Tesla demonstrerar sin banbrytande växelströmsteknologi under världens första elektriska världsutställning i Chicago.",
-    "image": "train.jpg",
-    "food": "All Inclusive"
+    "title": "London slogs av en ölsvämning (1814)",
+    "description": "I London exploderade ett enormt ölfat på en bryggeri, vilket frigjorde över 1,4 miljoner liter öl på gatorna. Översvämningen förstörde byggnader, och flera personer omkom – några drunknade faktiskt i öl.",
+    "image": "london.jpg",
+    "food": "All Inclusive",
+    "discount": "-40%",
+    "availableTrips": [
+      { "date": "1814-04-15", "price": 96000 },
+      { "date": "1814-05-10", "price": 105000 }
+    ]
   },
   {
     "id": 4,
-    "title": "År 2006: En smakfull resa tillbaka i tiden",
-    "description": "Året är 2006, Spotify är bara en idé, Facebook börjar ta fart globalt, och världen fascineras av Pluto som degraderas från planet till dvärgplanet. Sverige jublar över framgångar i fotbolls-VM och melodifestivalen, medan nostalgiska vinterkvällar fylls av matmagi. 2006 var året då teknologin tog fart, men inget kunde slå enkelheten i en Findus Jultallrik",
-    "image": "drinks.jpg",
-    "food": "All Inclusive"
+    "title": "Den stora strutskrigen i Australien, 1932",
+    "description": "Australien förklarade faktiskt krig mot strutsar. När emuer började invadera åkrar och förstöra grödor, skickade regeringen in militären med maskingevär för att hantera problemet. Trots detta vann strutsarna, och det blev ett pinsamt nederlag för människorna.",
+    "image": "sydney.jpg",
+    "food": "All Inclusive",
+    "discount": "-50%",
+    "availableTrips": [
+      { "date": "1932-09-15", "price": 119000 },
+      { "date": "1933-11-10", "price": 99000 }
+    ]
   }
 ]
