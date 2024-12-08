@@ -1,0 +1,137 @@
+[
+  {
+    "experienceId": 1,
+    "reviews": [
+      {
+        "stars": 5,
+        "comment": "Otroligt inspirerande att se konstnärliga mästerverk skapas framför ögonen! En oförglömlig resa.",
+        "name": "Lisa H."
+      },
+      {
+        "stars": 4,
+        "comment": "Fantastiskt att uppleva renässansen, men det kunde ha varit fler interaktiva moment.",
+        "name": "Anders T."
+      }
+    ]
+  },
+  {
+    "experienceId": 2,
+    "reviews": [
+      {
+        "stars": 5,
+        "comment": "Att segla med vikingaskepp och delta i ceremonierna var helt magiskt. Rekommenderas starkt!",
+        "name": "Erik V."
+      },
+      {
+        "stars": 4,
+        "comment": "En unik inblick i vikingatiden, men det var lite svårt att hänga med i språket.",
+        "name": "Sofia M."
+      }
+    ]
+  },
+  {
+    "experienceId": 3,
+    "reviews": [
+      {
+        "stars": 5,
+        "comment": "En hisnande upplevelse att bevittna revolutionens kraft! Helt fantastisk stämning.",
+        "name": "Jeanette L."
+      },
+      {
+        "stars": 3,
+        "comment": "Intressant, men lite för intensivt för min smak. Folkmassorna kunde bli överväldigande.",
+        "name": "Oskar D."
+      }
+    ]
+  },
+  {
+    "experienceId": 4,
+    "reviews": [
+      {
+        "stars": 5,
+        "comment": "En barndomsdröm gick i uppfyllelse! Dinosaurierna var otroligt realistiska.",
+        "name": "Martin K."
+      },
+      {
+        "stars": 4,
+        "comment": "Fantastiskt att se dinosaurier, men säkerheten kunde ha varit bättre.",
+        "name": "Anna J."
+      }
+    ]
+  },
+  {
+    "experienceId": 5,
+    "reviews": [
+      {
+        "stars": 5,
+        "comment": "Att delta i pyramidbygget och lära mig hieroglyfer var en otrolig upplevelse!",
+        "name": "Karin S."
+      },
+      {
+        "stars": 4,
+        "comment": "Mycket spännande, men jag hade önskat mer tid för att utforska på egen hand.",
+        "name": "David P."
+      }
+    ]
+  },
+  {
+    "experienceId": 6,
+    "reviews": [
+      {
+        "stars": 5,
+        "comment": "En helt fantastisk upplevelse! Framtiden är verkligen ljus. Neo-Utopia är som en dröm. Rekommenderas starkt!",
+        "name": "Sara L."
+      },
+      {
+        "stars": 4,
+        "comment": "Fantastiskt koncept och väldigt inspirerande, men lite för futuristiskt för min smak.",
+        "name": "Jonas P."
+      }
+    ]
+  },
+  {
+    "experienceId": 7,
+    "reviews": [
+      {
+        "stars": 5,
+        "comment": "Nostalgi på hög nivå! Att uppleva 2006 igen var magiskt. Julkänslan var helt underbar!",
+        "name": "Emma K."
+      },
+      {
+        "stars": 4,
+        "comment": "Härlig tidsresa, men hade velat se mer av vardagslivet. Jultallriken var dock ikonisk!",
+        "name": "Oskar D."
+      }
+    ]
+  },
+  {
+    "experienceId": 8,
+    "reviews": [
+      {
+        "stars": 4,
+        "comment": "Otroligt surrealistiskt att se öl flyta över Londons gator. Lite tragiskt men ändå fascinerande.",
+        "name": "Linda W."
+      },
+      {
+        "stars": 5,
+        "comment": "Historiskt kaos på ett väldigt unikt sätt! Ett måste för ölfantaster.",
+        "name": "Erik H."
+      }
+    ]
+  },
+  {
+    "experienceId": 9,
+    "reviews": [
+      {
+        "stars": 5,
+        "comment": "Ett otroligt roligt och galet äventyr. Strutsarna är helt fantastiska!",
+        "name": "Anna T."
+      },
+      {
+        "stars": 4,
+        "comment": "En mycket udda historia, men ändå väldigt intressant. Strutsarna var riktigt imponerande.",
+        "name": "Martin R."
+      }
+    ]
+  }
+]

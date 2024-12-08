@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 6,
     "title": "Neo-Utopia, en stadsresa år 2150",
     "description": "En framtid där mänskligheten har skapat en perfekt balans mellan teknologi, natur och samhälle. I Neo-Utopia, en stad som svävar fritt ovanför jorden, har vi övervunnit alla problem som vi i dagens värld står inför. Här är ingen fattigdom, inga konflikter, och naturen är i perfekt harmoni med de futuristiska byggnaderna som sträcker sig mot himlen.",
     "image": "carousel.jpg",
@@ -12,7 +12,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 7,
     "title": "År 2006, en smakfull resa",
     "description": "Året är 2006, Spotify är bara en idé, Facebook börjar ta fart globalt, och världen fascineras av Pluto som degraderas från planet till dvärgplanet. Sverige jublar över framgångar i fotbolls-VM och melodifestivalen, medan nostalgiska vinterkvällar fylls av matmagi. 2006 var året då teknologin tog fart, men inget kunde slå enkelheten i en Findus Jultallrik",
     "image": "drinks.jpg",
@@ -24,7 +24,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 8,
     "title": "London slogs av en ölsvämning (1814)",
     "description": "I London exploderade ett enormt ölfat på en bryggeri, vilket frigjorde över 1,4 miljoner liter öl på gatorna. Översvämningen förstörde byggnader, och flera personer omkom – några drunknade faktiskt i öl.",
     "image": "london.jpg",
@@ -36,7 +36,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 9,
     "title": "Den stora strutskrigen i Australien, 1932",
     "description": "Australien förklarade faktiskt krig mot strutsar. När emuer började invadera åkrar och förstöra grödor, skickade regeringen in militären med maskingevär för att hantera problemet. Trots detta vann strutsarna, och det blev ett pinsamt nederlag för människorna.",
     "image": "sydney.jpg",
