@@ -1,7 +1,6 @@
 <template>
   <Navbar />
   <main class="main-content">
-    <div>
       <h2 class="title">Paket Erbjudanden</h2>
       <div class="card-wrapper">
         <div v-for="trips in combinedTrips" :key="trips.id" class="pkg-card">
@@ -21,10 +20,7 @@
           <button @click="bookPkg(trips.id)">Boka</button>
         </div>
       </div>
-    </div>
-    <aside>
       <Reviews />
-    </aside>
   </main>
 </template>
 
@@ -62,11 +58,11 @@ const bookPkg = (id: number) => {
   text-align: center;
   height: 400px;
 } */
-.main-content {
+/* .main-content {
   display: grid;
   grid-template-areas: "main aside";
   grid-template-columns: 2fr 1fr;
-}
+} */
 .title {
   text-align: center;
   margin: 2rem;
@@ -81,7 +77,7 @@ const bookPkg = (id: number) => {
   margin: 1rem;
   padding: 20px;
   border: 1px solid #ccc;
-  width: 500px;
+  /* width: 500px; */
   background-color: #f9f9f9;
   color: black;
   max-width: 350px;
