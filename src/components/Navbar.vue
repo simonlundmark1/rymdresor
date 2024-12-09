@@ -7,7 +7,12 @@
           <span></span>
           <span></span>
         </button>
-        <input type="text">
+        <input type="text"
+        v.onKeyup.enter="searchForExperience"
+        v-model="searchQuery"
+        @keyup.enter="emitSearch"
+        placeholder="Search..."
+       >
       </div>
       <div class="nav-links" :class="{ open: isMenuOpen }">
         <router-link
@@ -48,10 +53,17 @@
 
   export default defineComponent({
     name: "Navbar",
+  props: {
+    onSearch: {
+      type: Function,
+      required: true
+    }
+  },
     components: {
       CartWidget,
     },
-    setup() {
+    setup(props) {
+     const searchQuery = ref("");
       const route = useRoute();
       const isMenuOpen = ref(false);
       let isCartOpen = ref(false);
@@ -63,12 +75,16 @@
       const closeMenu = () => {
         isMenuOpen.value = false;
       };
+ const emitSearch = () => {
+      props.onSearch(searchQuery.value);
+    };
+
 
       const openCartWidget = () => {
         isCartOpen.value = !isCartOpen.value;
       };
 
-      return { route, isMenuOpen, toggleMenu, closeMenu, isCartOpen, openCartWidget, };
+      return { route, isMenuOpen, toggleMenu, closeMenu, emitSearch, searchQuery, isCartOpen, openCartWidget, };   
     },
   });
 
