@@ -1,7 +1,7 @@
 <template>
   <Banner />
   <div class="home-hero">
-    <Navbar />
+    <Navbar @search="handleSearch"/>
     <h1 class="hero-title">Välkommen till Tidsresor</h1>
   </div>
   <space-experience-list :experiences="experiences" />
@@ -28,18 +28,27 @@ export default defineComponent({
       searchQuery: "",
       experiences: [] as any[],
     };
-  },
-  computed: {
-    filteredItems() {
-      const query = this.searchQuery.trim().toLowerCase();
-      return this.experiences.filter((experience) =>
-        experience.title.toLowerCase().includes(query)
-      );
+  },  
+  methods: {  
+handleSearch(query: string) {
+      this.searchQuery = query;
+      this.searchForExperience(query);
     },
-  },
-  methods: {
-    updateSearchQuery(newQuery: string) {
-      this.searchQuery = newQuery;
+
+     searchForExperience(query:string) {
+      const searchQuery = query.trim().toLowerCase();
+      const matchingExperience = this.experiences.find((experience) =>
+        experience.title.trim().toLowerCase().includes(searchQuery)
+      );
+      if (matchingExperience) {
+        const index = this.experiences.indexOf(matchingExperience);
+        const element = document.querySelector(`[data-ref="experience-${index}"]`);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      } else {
+        console.warn("No matching experience found.");
+      }
     },
   },
   async created() {
