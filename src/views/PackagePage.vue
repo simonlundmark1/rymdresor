@@ -1,26 +1,26 @@
 <template>
-  <Navbar />
+  <Navbar @search="handleSearch" />
   <main class="main-content">
-      <h2 class="title">Paket Erbjudanden</h2>
-      <div class="card-wrapper">
-        <div v-for="trips in combinedTrips" :key="trips.id" class="pkg-card">
-          <div class="image-wrapper">
-            <img
-              class="image"
-              :src="getImageUrl(trips.image)"
-              :alt="trips.title"
-            />
-            <p class="overlay-text" v-show="trips.food">{{ trips.food }}</p>
-            <p class="discount-text" v-show="trips.discount">
-              {{ trips.discount }}
-            </p>
-          </div>
-          <h3>{{ trips.title }}</h3>
-          <p class="description">{{ trips.description }}</p>
-          <button @click="bookPkg(trips.id)">Boka</button>
+    <h2 class="title">Paket Erbjudanden</h2>
+    <div class="card-wrapper">
+      <div v-for="trips in combinedTrips" :key="trips.id" class="pkg-card">
+        <div class="image-wrapper">
+          <img
+            class="image"
+            :src="getImageUrl(trips.image[0])"
+            :alt="trips.title"
+          />
+          <p class="overlay-text" v-show="trips.food">{{ trips.food }}</p>
+          <p class="discount-text" v-show="trips.discount">
+            {{ trips.discount }}
+          </p>
         </div>
+        <h3>{{ trips.title }}</h3>
+        <p class="description">{{ trips.description }}</p>
+        <button @click="bookPkg(trips.id)">Boka</button>
       </div>
-      <Reviews />
+    </div>
+    <Reviews />
   </main>
 </template>
 
@@ -47,16 +47,20 @@ const getImageUrl = (imageName: string) => {
 };
 
 const bookPkg = (id: number) => {
-  router.push({ name: "booking", query: { id: id.toString() } });
+  router.push({ name: "booking", params: { id } });
+};
+
+const handleSearch = (query: string) => {
+  console.log("Sökning efter:", query);
 };
 </script>
 
 <style scoped>
-/* .package-hero {
-  background: url("./train.jpg") center center no-repeat;
+/* .main-content {
+  background: url("/john-towner-7rlIPXTR6OI-unsplash.jpg") top no-repeat;
   background-size: cover;
   text-align: center;
-  height: 400px;
+  min-height: 100vh;
 } */
 /* .main-content {
   display: grid;
@@ -65,7 +69,7 @@ const bookPkg = (id: number) => {
 } */
 .title {
   text-align: center;
-  margin: 2rem;
+  padding: 2rem;
 }
 .card-wrapper {
   display: flex;

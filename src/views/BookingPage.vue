@@ -21,6 +21,7 @@
         </li>
       </ul>
     </div>
+    <SelectedTripInfo />
   </div>
 </template>
 
@@ -28,11 +29,13 @@
 import { defineComponent } from 'vue';
 import Navbar from '../components/Navbar.vue';
 import '../style/view/BookingPage.css';
+import SelectedTripInfo from '../components/SelectedTripInfo.vue';
 
 export default defineComponent({
   name: 'BookingPage',
   components: {
-    Navbar
+    Navbar,
+    SelectedTripInfo
   },
   data() {
     return {
