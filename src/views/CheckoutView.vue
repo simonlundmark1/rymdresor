@@ -9,10 +9,13 @@
             <h1>Checkout</h1>
             <p>Tack för din beställning, vänligen se över dina resor innan betalning.</p>
             <ul>
-                <li v-for="experience in experiences" :key="experience.title">
-                    Datum: {{ experience.title }} - Pris: {{ experience.price }} SEK
+                <li v-for ="item in cartStore.items" :key="item.id" >
+                    <p>{{ item.name }} - {{ item.price }}kr x {{ item.quantity }}</p>
+
+                   
                 </li>
             </ul>
+            <p>Total: {{ cartStore.totalPrice }}kr</p>
 
             <button class="checkout-button">
                 Betala
@@ -23,23 +26,14 @@
 
 
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+
+import { useCartStore } from '../stores/cart';
+
+const cartStore = useCartStore();
 
 
 
-export default defineComponent({
-    name: 'CheckoutView',
-    data() {
-        return {
-            experiences: [
-                { title: 'Renässansen', price: 1000 },
-                { title: '2023-07-20', price: 1200 },
-                { title: '2023-07-25', price: 1100 }
-            ]
-        }
-    }
-})
 
 </script>
 <style scoped>
