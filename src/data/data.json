@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Renässansen i Florens",
       "description": "Besök renässansens höjdpunkt och upplev mästerverk av Leonardo da Vinci och Michelangelo.",
-      "image": "/renaissance.jpg",
+      "image": ["renaissance.jpg"],
       "availableTrips": [
         { "date": "1475-04-15", "price": 120000 },
         { "date": "1490-06-10", "price": 130000 }
@@ -14,7 +14,7 @@
       "id": 2,
       "title": "Vikingatiden i Skandinavien",
       "description": "Segla med vikingaskepp och delta i en traditionell blotceremoni.",
-      "image": "/viking.jpg",
+      "image": ["viking.jpg"],
       "availableTrips": [
         { "date": "900-08-01", "price": 100000 },
         { "date": "950-09-15", "price": 110000 }
@@ -24,7 +24,7 @@
       "id": 3,
       "title": "Franska revolutionen i Paris",
       "description": "Bevittna historiens gång och delta i folkmassorna under revolutionens dagar.",
-      "image": "/revolution.jpg",
+      "image": ["revolution.jpg"],
       "availableTrips": [
         { "date": "1789-07-14", "price": 140000 },
         { "date": "1793-01-21", "price": 145000 }
@@ -34,7 +34,7 @@
       "id": 4,
       "title": "Juraperioden - dinosauriernas tid",
       "description": "Utforska en värld fylld av dinosaurier och spännande växter.",
-      "image": "/jurassic.jpg",
+      "image": ["jurassic.jpg"],
       "availableTrips": [
         { "date": "150000000-05-01", "price": 200000 },
         { "date": "145000000-09-10", "price": 210000 }
@@ -44,7 +44,7 @@
       "id": 5,
       "title": "Antikens Egypten",
       "description": "Bygg pyramiderna och lär dig hieroglyfernas hemligheter.",
-      "image": "/egypt.jpg",
+      "image": ["/egypt.jpg"],
       "availableTrips": [
         { "date": "2500-01-01 BC", "price": 160000 },
         { "date": "2400-06-15 BC", "price": 165000 }

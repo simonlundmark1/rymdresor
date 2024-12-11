@@ -44,8 +44,7 @@
             </li> -->
         </ul>
         <button @click="clearCart">Clear Cart</button>
-
-        <button @click="CheckoutCart">Checkout</button>
+        <RouterLink to="/checkout">Checkout</RouterLink>
     </section>
 </template>
 

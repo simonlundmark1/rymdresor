@@ -55,7 +55,7 @@ handleSearch(query: string) {
     try {
       const res = await fetch("/src/data/data.json");
       const data = await res.json();
-      console.log("Fetched experiences:", data.experiences);
+      // console.log("Fetched experiences:", data.experiences);
       this.experiences = data.experiences;
     } catch (error) {
       console.error("Failed to fetch data:", error);
