@@ -1,5 +1,22 @@
-# Vue 3 + TypeScript + Vite
+# Time Travel - Experience Portal
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This project is a web-based application designed to offer users the unique opportunity to explore and book time travel. Browse through various historical and futuristic destinations, see detailed information and get inspired.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+The application is developed with Vue, TypeScript to ensure code quality, Vue Router for navigation and Pinia to store and share data efficiently and easily across the entire application. To help us in development, we have also used AI.
+
+## Visuals
+
+![Start page](/public/firstpage.png "Stock market")
+
+## How to install
+
+node.js - https://nodejs.org/en/download  
+npm - https://www.npmjs.com/
+
+```
+git clone https://github.com/simonlundmark1/rymdresor
+cd rymdresor
+npm install
+npm run dev
+
+```
