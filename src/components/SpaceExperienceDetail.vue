@@ -49,6 +49,6 @@ export default defineComponent({
 .experience-container {
   border: 2px solid #ccc;
   padding: 20px;
-  color: #333;
+  color: #ffffff;
 }
 </style>

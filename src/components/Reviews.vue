@@ -13,7 +13,6 @@
 </template>
 
 <script setup lang="ts">
-import "../style/view/PackagePage.css";
 import reviewsData from "../data/reviews.json";
 import { ref, onMounted } from "vue";
 

@@ -144,4 +144,17 @@ const handleSearch = (query: string) => {
   text-overflow: clip;
   overflow: hidden;
 }
+
+/* .package-hero {
+    background: url('/john-towner-7rlIPXTR6OI-unsplash.jpg') top no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  
+  .pkg-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+  }
+   */
 </style>

@@ -8,9 +8,11 @@
       >
       <h2>{{ experience.title }}</h2>
       <p>{{ experience.description }}</p>
-      <button @click="viewDetails(experience.id)">Utforska</button>
+      <button @click="bookPkg(experience.id)">Utforska</button>
   </div>
 </template>
+
+
 
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -24,6 +26,9 @@ export default defineComponent({
     },
   },
   methods: {
+    bookPkg(id: number) {
+      this.$router.push({ name: "booking", params: { id } });
+    },
     viewDetails(id: number) {
       this.$router.push(`/experience/${id}`);
     },
