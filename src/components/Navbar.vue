@@ -7,12 +7,14 @@
           <span></span>
           <span></span>
         </button>
-        <input type="text"
+
+        <input type="text" v-if="route.path === '/'"
         v.onKeyup.enter="searchForExperience"
         v-model="searchQuery"
         @keyup.enter="emitSearch"
         placeholder="Search..."
        >
+
       </div>
       <div class="nav-links" :class="{ open: isMenuOpen }">
         <router-link
