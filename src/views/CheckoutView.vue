@@ -1,56 +1,55 @@
 <template>
-   
-    <div class="grid-container">
-        <div class="footer">
-           
-        </div>
+  <div class="grid-container">
+    <div class="footer"></div>
 
-        <div class="checkout-container">
-            <h1>Checkout</h1>
-            <p>Tack för din beställning, vänligen se över dina resor innan betalning.</p>
-            <ul>
-                <li v-for ="item in cartStore.items" :key="item.id" >
-                    <p>{{ item.name }} - {{ item.price }}kr x {{ item.quantity }}</p>
+    <div class="checkout-container">
+      <h1>Checkout</h1>
+      <p>Tack för din beställning, vänligen se över dina resor innan betalning.</p>
+      <ul>
+        <li v-for="item in cartStore.items" :key="item.id">
+          <p>{{ item.name }} - {{ item.price }}kr x {{ item.quantity }}</p>
+        </li>
+      </ul>
+      <p>Total: {{ cartStore.totalPrice }}kr</p>
 
-                   
-                </li>
-            </ul>
-            <p>Total: {{ cartStore.totalPrice }}kr</p>
+      <!-- Button to open the modal -->
+      <button class="checkout-button" @click="toggleModal">
+        Betala
+      </button>
 
-            <button class="checkout-button">
-                Betala
-            </button>
-        </div>
+      <!-- Modal Component -->
+      <CheckoutModal v-if="isModalOpen" @close="toggleModal" />
     </div>
+  </div>
 </template>
 
-
-
 <script setup lang="ts">
-
+import { ref } from 'vue';
 import { useCartStore } from '../stores/cart';
+import CheckoutModal from '../components/CheckoutModal.vue'; // Import the modal component
 
 const cartStore = useCartStore();
+const isModalOpen = ref(false);
 
-
-
-
+function toggleModal() {
+  isModalOpen.value = !isModalOpen.value;
+}
 </script>
 <style scoped>
 /* Define the grid layout */
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr; /* Two equal columns */
-    grid-template-rows: 20% 40% auto; /* Auto for content rows, fixed for navbar */
+    grid-template-columns: 1fr 2fr 1fr 1fr; 
+    grid-template-rows: 20% 40% auto; 
     grid-gap: 20px;
     margin: 20px;
-    min-height: 100vh; /* Ensure the grid takes the full height of the viewport */
+    min-height: 100vh; 
 }
 
-/* Style the checkout container */
+
 .checkout-container {
-    grid-column: 2; /* Place in the second column */
-    grid-row: 2; /* Place in the second row */
+    grid-column: 2;
+    grid-row: 2; 
   
     padding: 20px;
     color: white;
