@@ -52,9 +52,11 @@
     .cartWrapper {
         height: 500px;
         width: 300px;
-        background-color: red;
+        background-color: #ff0000;
+        padding: 20px;
         position: absolute;
         top: 100px;
         right: 100px;
+        z-index: 999;
     }
 </style>

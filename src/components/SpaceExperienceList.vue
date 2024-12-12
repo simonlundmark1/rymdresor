@@ -52,6 +52,7 @@ export default defineComponent({
 
 <style scoped>
   .experience-card{
+    position: relative;
     padding: 0;
     margin: 0;
     height: 90vh;
@@ -59,6 +60,7 @@ export default defineComponent({
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    z-index: 10;
   }
   h2{
     font-size: 60px;
