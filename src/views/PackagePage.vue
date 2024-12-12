@@ -1,7 +1,7 @@
 <template>
   <Navbar @search="handleSearch" />
   <main class="main-content">
-    <h2 class="title">Paket Erbjudanden</h2>
+    <h2 class="title">Paketerbjudanden</h2>
     <div class="card-wrapper">
       <div v-for="trips in combinedTrips" :key="trips.id" class="pkg-card">
         <div class="image-wrapper">
@@ -76,6 +76,7 @@ const handleSearch = (query: string) => {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 5rem;
 }
 .pkg-card {
   margin: 1rem;

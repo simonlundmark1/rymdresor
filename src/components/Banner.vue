@@ -23,12 +23,14 @@
   background-color: black;
   color: white;
   overflow: hidden;
-  position: relative;
+  position: fixed;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 99999;
+margin-top: -3rem;
 }
 
 .text-wrapper {

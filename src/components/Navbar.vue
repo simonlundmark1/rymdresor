@@ -99,9 +99,10 @@ nav {
     align-items: center;
     background-color:#DEF2F6;
     color: white;
-    animation: fadeIn 1s ease-in-out;
     padding: 0,5rem;
     border-bottom: 2px solid #E6D7D8;
+    position: fixed;
+    z-index: 9999;
   }
   
   .nav-items {
@@ -192,5 +193,6 @@ nav {
 
 .cart-link {
   cursor: pointer;
+  color:black;  
 }
 </style>
