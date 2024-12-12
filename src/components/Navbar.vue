@@ -9,14 +9,14 @@
         <span></span>
         <span></span>
       </button>
-      <div class="search-input">
+      <!-- <div class="search-input">
         <input
           type="text"
           v-on:keyup.enter="searchForExperience"
           v-model="searchQuery"
           placeholder="Sök resa..."
         />
-      </div>
+      </div> -->
     </div>
     <div class="nav-links" :class="{ open: isMenuOpen }">
       <router-link

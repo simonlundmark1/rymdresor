@@ -2,6 +2,7 @@
   <Navbar @search="handleSearch" />
   <main class="main-content">
     <h2 class="title">Paket Erbjudanden</h2>
+    <SearchTrip/>
     <div class="card-wrapper">
       <div v-for="trips in combinedTrips" :key="trips.id" class="pkg-card">
         <div class="image-wrapper">
@@ -30,6 +31,7 @@ import Navbar from "../components/Navbar.vue";
 import pkgs from "../data/offersData.json";
 import trips from "../data/data.json";
 import Reviews from "../components/Reviews.vue";
+import SearchTrip from "../components/SearchTrip.vue";
 
 const router = useRouter();
 
@@ -67,6 +69,14 @@ const handleSearch = (query: string) => {
   grid-template-areas: "main aside";
   grid-template-columns: 2fr 1fr;
 } */
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
 .title {
   text-align: center;
   padding: 2rem;
@@ -87,6 +97,8 @@ const handleSearch = (query: string) => {
   max-width: 350px;
   height: 400px;
   text-align: center;
+  border-radius: 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .pkg-card h3 {
   margin: 0 0 10px;

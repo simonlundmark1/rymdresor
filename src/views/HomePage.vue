@@ -2,7 +2,9 @@
   <Banner />
   <div class="home-hero">
     <Navbar @search="handleSearch" />
+
     <h1 class="hero-title">Det var bättre förr.™  </h1>
+    <SearchTrip/>
     <div class="clock-sak">
       <Clock />
     </div>
@@ -25,8 +27,6 @@
   <div class="jesus">
     <img src="/public/jesus2.png" alt="Hero Image" />
   </div>
-
-
   <space-experience-list :experiences="experiences" />
 </template>
 
@@ -36,6 +36,7 @@ import SpaceExperienceList from "../components/SpaceExperienceList.vue";
 import Navbar from "../components/Navbar.vue";
 import Banner from "../components/Banner.vue";
 import Clock from "../components/Clock.vue";
+import SearchTrip from "../components/SearchTrip.vue";
 
 export default defineComponent({
   name: "HomePage",
@@ -44,6 +45,7 @@ export default defineComponent({
     Navbar,
     Banner,
     Clock,
+    SearchTrip,
   },
   data() {
     return {
@@ -127,10 +129,16 @@ export default defineComponent({
 
 <style scoped>
 
+.home-hero{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .clock-sak {
   opacity: 0.3;
   position: relative;
-  margin-left: -8rem;
+  margin-left: -12rem;
   margin-top: -1.5rem;
   zoom: 400%; /* Preserved as per original */
   z-index: 1;
