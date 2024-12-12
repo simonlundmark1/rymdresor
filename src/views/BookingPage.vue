@@ -18,6 +18,7 @@
       <ul>
         <li v-for="result in results" :key="result.date">
           Datum: {{ result.date }} - Pris: {{ result.price }} SEK
+          <button @click="addToCart(result)">Lägg till i kundvagn</button>
         </li>
       </ul>
     </div>
@@ -29,6 +30,7 @@
 import { defineComponent } from 'vue';
 import Navbar from '../components/Navbar.vue';
 import SelectedTripInfo from '../components/SelectedTripInfo.vue';
+import { useCartStore } from '../stores/cart';
 
 export default defineComponent({
   name: 'BookingPage',
@@ -49,7 +51,17 @@ export default defineComponent({
       const data = await res.json();
       // Här kan du lägga till logik för att filtrera resultat baserat på val
       this.results = data.experiences.flatMap((exp: any) => exp.availableTrips);
-    }
+    },
+    addToCart(result: any) {
+      const cartStore = useCartStore();
+      const item = {
+        id: result.id,
+        name: `Trip on ${result.date}`,
+        price: result.price,
+        quantity: this.people,
+      };
+      cartStore.addToCart(item);
+    },
   }
 });
 </script>
