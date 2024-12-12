@@ -17,7 +17,7 @@
         </div>
         <h3>{{ trips.title }}</h3>
         <p class="description">{{ trips.description }}</p>
-        <button @click="bookPkg(trips.id)">Boka</button>
+        <button @click="bookPkg(trips.id)">Läs mer</button>
       </div>
     </div>
     <Reviews />
