@@ -1,41 +1,67 @@
 import { defineStore } from 'pinia';
-import { createPinia } from 'pinia';
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 
 interface CartItem {
   id: number;
   name: string;
   price: number;
   quantity: number;
+  departureDate?: string;
+  extras?: {
+    insurance: boolean;
+    guide: boolean;
+    equipment: boolean;
+  };
 }
 
 export const useCartStore = defineStore('cart', {
   state: () => ({
-    items: [] as CartItem[],
+    items: [] as CartItem[]
   }),
+
   getters: {
-    totalQuantity: (state) => state.items.reduce((total, item) => total + item.quantity, 0),
-    totalPrice: (state) => state.items.reduce((total, item) => total + item.price * item.quantity, 0),
+    totalPrice: (state) => {
+      return state.items.reduce((total, item) => total + item.price, 0);
+    },
+    
+    itemCount: (state) => {
+      return state.items.reduce((count, item) => count + item.quantity, 0);
+    }
   },
+
   actions: {
     addToCart(item: CartItem) {
-      const existingItem = this.items.find((cartItem) => cartItem.id === item.id);
+      const existingItem = this.items.find(i => 
+        i.id === item.id && 
+        i.departureDate === item.departureDate &&
+        JSON.stringify(i.extras) === JSON.stringify(item.extras)
+      );
+
       if (existingItem) {
         existingItem.quantity += item.quantity;
+        existingItem.price += item.price;
       } else {
         this.items.push(item);
       }
     },
+
     removeFromCart(itemId: number) {
-      this.items = this.items.filter((item) => item.id !== itemId);
+      const index = this.items.findIndex(item => item.id === itemId);
+      if (index > -1) {
+        this.items.splice(index, 1);
+      }
     },
+
+    updateQuantity(itemId: number, quantity: number) {
+      const item = this.items.find(item => item.id === itemId);
+      if (item) {
+        const pricePerUnit = item.price / item.quantity;
+        item.quantity = quantity;
+        item.price = pricePerUnit * quantity;
+      }
+    },
+
     clearCart() {
       this.items = [];
-    },
-  },
-  persist: true, // Enable persistence
+    }
+  }
 });
-
-// Enable the plugin
-const pinia = createPinia();
-pinia.use(piniaPluginPersistedstate);

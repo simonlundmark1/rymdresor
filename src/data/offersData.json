@@ -6,10 +6,7 @@
     "image": ["julbock.webp", "julbock2.webp"],
     "food": "All Inclusive",
     "discount": "-50%",
-    "availableTrips": [
-      { "date": "2024-12-22", "price": 176000 },
-      { "date": "2025-01-01", "price": 190000 }
-    ]
+    "price": 176000
   },
   
   {
@@ -19,10 +16,7 @@
     "image": ["911.avif"],
     "food": "All Inclusive",
     "discount": "-50%",
-    "availableTrips": [
-      { "date": "2150-04-15", "price": 176000 },
-      { "date": "2150-07-10", "price": 190000 }
-    ]
+    "price": 176000
   },
 
   {
@@ -32,10 +26,7 @@
     "image": ["carousel.jpg", "santa.jpg"],
     "food": "All Inclusive",
     "discount": "-50%",
-    "availableTrips": [
-      { "date": "2150-04-15", "price": 176000 },
-      { "date": "2150-07-10", "price": 190000 }
-    ]
+    "price": 176000
   },
   {
     "id": 9,
@@ -52,10 +43,7 @@
     ],
     "food": "All Inclusive",
     "discount": "-30%",
-    "availableTrips": [
-      { "date": "2006-12-02", "price": 125000 },
-      { "date": "2006-12-20", "price": 139000 }
-    ]
+    "price": 125000
   },
   {
     "id": 10,
@@ -64,10 +52,7 @@
     "image": ["london.jpg"],
     "food": "All Inclusive",
     "discount": "-40%",
-    "availableTrips": [
-      { "date": "1814-04-15", "price": 96000 },
-      { "date": "1814-05-10", "price": 105000 }
-    ]
+    "price": 96000
   },
   {
     "id": 11,
@@ -76,9 +61,6 @@
     "image": ["sydney.jpg"],
     "food": "All Inclusive",
     "discount": "-50%",
-    "availableTrips": [
-      { "date": "1932-09-15", "price": 119000 },
-      { "date": "1933-11-10", "price": 99000 }
-    ]
+    "price": 119000
   }
 ]
