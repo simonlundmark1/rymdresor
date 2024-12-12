@@ -76,6 +76,7 @@ const handleSearch = (query: string) => {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 5rem;
 }
 .pkg-card {
   margin: 1rem;

@@ -178,7 +178,7 @@
     margin-top: -1.5rem;
     zoom: 400%; /* Preserved as per original */
     z-index: 10;
-    animation: slideUp 3s ease-in-out;
+    animation: slideUp2 3s ease-in-out;
   }
 
 
@@ -343,5 +343,19 @@
       transform: translateY(0);
     }
   }
+
+  
+  @keyframes slideUp2 {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 0.3;
+
+      transform: translateY(0);
+    }
+  }
+
   </style>
 
