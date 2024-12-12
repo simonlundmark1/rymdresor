@@ -1,6 +1,6 @@
 <template>
   <div class="booking-hero">
-    <Navbar/>
+    <Navbar :onSearch="handleSearch"/>
     <h2>Boka din rymdupplevelse</h2>
     <form @submit.prevent="submitBooking">
       <label>
@@ -40,15 +40,19 @@ export default defineComponent({
     return {
       days: 1,
       people: 1,
-      results: [] as any[]
+      results: [] as any[],
+      searchTerm: ''
     };
   },
   methods: {
     async submitBooking() {
       const res = await fetch('/src/data/data.json');
       const data = await res.json();
-      // Här kan du lägga till logik för att filtrera resultat baserat på val
       this.results = data.experiences.flatMap((exp: any) => exp.availableTrips);
+    },
+    handleSearch(searchTerm: string) {
+      this.searchTerm = searchTerm;
+      console.log('Searching for:', searchTerm);
     }
   }
 });

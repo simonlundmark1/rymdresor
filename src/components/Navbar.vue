@@ -54,6 +54,11 @@ export default defineComponent({
       required: true,
     },
   },
+  methods: {
+    searchForExperience() {
+      this.emitSearch();
+    },
+  },
   components: {
     CartWidget,
   },
@@ -70,6 +75,7 @@ export default defineComponent({
     const closeMenu = () => {
       isMenuOpen.value = false;
     };
+
     const emitSearch = () => {
       props.onSearch(searchQuery.value);
     };

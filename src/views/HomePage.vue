@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeUnmount } from "vue";
+import { defineComponent } from "vue";
 import SpaceExperienceList from "../components/SpaceExperienceList.vue";
 import Navbar from "../components/Navbar.vue";
 import Banner from "../components/Banner.vue";

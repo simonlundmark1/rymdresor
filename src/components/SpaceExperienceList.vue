@@ -16,12 +16,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { Experience } from '../interfaces/interfaces';
 
 export default defineComponent({
   name: 'SpaceExperienceList',
   props: {
     experiences: {
-      type: Array,
+      type: Array as () => Experience[],
       required: true,
     },
   },
@@ -32,7 +33,9 @@ export default defineComponent({
     viewDetails(id: number) {
       this.$router.push(`/experience/${id}`);
     },
-    getBackgroundStyle(imageUrl: string | null) {
+    getBackgroundStyle(images: string[]) {
+      const imageUrl = images.length > 0 ? images[0] : null;
+      
       if (imageUrl) {
         return {
           backgroundImage: `url(${imageUrl})`,
@@ -41,8 +44,8 @@ export default defineComponent({
         };
       }
       return {
-        height: '200px', // Om ingen bild finns, bibehåll höjden
-        backgroundColor: '#f0f0f0', // Alternativ bakgrundsfärg
+        height: '200px',
+        backgroundColor: '#f0f0f0',
         borderRadius: '8px',
       };
     },
