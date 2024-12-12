@@ -8,7 +8,7 @@
 
     <div class="home-hero">
 
-      <video autoplay loop muted class="home-hero-video">
+      <video ref="video" @ended="handleVideoEnd" autoplay loop muted class="home-hero-video">
         <source src="/sunrise.mp4" type="video/mp4" />
       </video>
       <h1 class="hero-title">Det var bättre förr.™  </h1>
@@ -40,7 +40,7 @@
   </template>
 
   <script lang="ts">
-  import { defineComponent, onBeforeUnmount } from "vue";
+  import { defineComponent, onBeforeUnmount, ref } from "vue";
   import SpaceExperienceList from "../components/SpaceExperienceList.vue";
   import Navbar from "../components/Navbar.vue";
   import Banner from "../components/Banner.vue";
@@ -108,6 +108,20 @@
             this.triggerExplosion();
           }, 5000); // 5 seconds
         }, 2500); // 2.5 seconds
+      },
+
+      handleVideoEnd() {
+        if (this.$refs.video) {
+          if (this.isReversing) {
+            this.$refs.video.currentTime = 0; // Reset to start
+            this.$refs.video.play(); // Play forward
+          } else {
+            this.$refs.video.currentTime = this.$refs.video.duration; // Go to end
+            this.$refs.video.playbackRate = -1; // Set playback rate to reverse
+            this.$refs.video.play(); // Start playing backwards
+          }
+          this.isReversing = !this.isReversing; // Toggle direction
+        }
       },
     },
 
@@ -192,7 +206,7 @@
     z-index: 1;
     overflow-x: hidden;
     zoom: 150%;
-    opacity: 0.6;
+    opacity: 0.6  ;
     animation: jesus 3s ease-in-out;
 
   }
@@ -206,7 +220,7 @@
     z-index: 0;
     overflow: hidden;
     zoom: 150%;
-    opacity: 0.5;
+    opacity: 0.9;
     animation: jesus 3s ease-in-out;
 
   }
