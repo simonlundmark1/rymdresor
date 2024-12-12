@@ -220,7 +220,7 @@
     z-index: 0;
     overflow: hidden;
     zoom: 150%;
-    opacity: 0.9;
+    opacity: 0.6;
     animation: jesus 3s ease-in-out;
 
   }
@@ -306,11 +306,11 @@
   .hero-title {
     position: relative;
     z-index: 999999999999;
-    margin-top: 2%;
-    font-size: 90px;
+    margin-top: 3%;
+    font-size: 72px;
     animation: fadeIn 3s ease-in-out, slideUp 5s ease-in-out;
     text-align: center;
-    color: #0F4446;
+    color: #ED1B2D;
   }
 
   @media (max-width: 768px) {
