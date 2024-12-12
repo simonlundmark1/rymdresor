@@ -1,4 +1,4 @@
-<template>
+np<template>
   <nav>
     <div class="nav-items">
       <router-link to="/" class="logo">
@@ -10,12 +10,12 @@
         <span></span>
       </button>
       <div class="search-input">
-        <input
-          type="text"
-          v-on:keyup.enter="searchForExperience"
-          v-model="searchQuery"
-          placeholder="Sök resa..."
-        />
+      <input type="text" v-if="route.path === '/'"
+        v.onKeyup.enter="searchForExperience"
+        v-model="searchQuery"
+        @keyup.enter="emitSearch"
+        placeholder="Search..."
+       >
       </div>
     </div>
     <div class="nav-links" :class="{ open: isMenuOpen }">
