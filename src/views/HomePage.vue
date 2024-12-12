@@ -1,5 +1,4 @@
   <template>
-    <Navbar @search="handleSearch" />
 
     <div class="navbar-bajs">       
        <Banner />
@@ -220,8 +219,8 @@
     z-index: 0;
     overflow: hidden;
     zoom: 150%;
-    opacity: 0.6;
-    animation: jesus 3s ease-in-out;
+    opacity: 1;
+    animation: jesus3 3s ease-in-out;
 
   }
 
@@ -336,6 +335,18 @@
       transform: translateY(15rem);
     }
     to {
+      transform: translateY(0);
+    }
+  }
+
+  
+  @keyframes jesus3 {
+    from {
+      filter: brightness(0);
+      transform: translateY(15rem);
+    }
+    to {
+      filter: brightness(1);
       transform: translateY(0);
     }
   }

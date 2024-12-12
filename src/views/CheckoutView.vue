@@ -2,7 +2,6 @@
   Navbar
 
   <div class="grid-container">
-    <div class="footer"></div>
 
     <div class="checkout-container">
       <h1>Checkout</h1>

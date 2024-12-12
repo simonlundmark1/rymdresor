@@ -10,34 +10,18 @@ np<template>
         <span></span>
       </button>
       <div class="search-input">
-      <input type="text" v-if="route.path === '/'"
-        v.onKeyup.enter="searchForExperience"
-        v-model="searchQuery"
-        @keyup.enter="emitSearch"
-        placeholder="Search..."
-       >
+        <input type="text" v-if="route.path === '/'"
+          v-on:keyup.enter="emitSearch"
+          v-model="searchQuery"
+          placeholder="Search...">
       </div>
     </div>
     <div class="nav-links" :class="{ open: isMenuOpen }">
-      <router-link
-        class="nav-link"
-        to="/"
-        exact-active-class="active-link"
-        @click="closeMenu"
-      >
-        Hem
-      </router-link>
-      <router-link
-        class="nav-link"
-        to="/packages"
-        exact-active-class="active-link"
-        @click="closeMenu"
-      >
-        Paket
-      </router-link>
+      <router-link class="nav-link" to="/" exact-active-class="active-link" @click="closeMenu">Hem</router-link>
+      <router-link class="nav-link" to="/packages" exact-active-class="active-link" @click="closeMenu">Paket</router-link>
       <p @click="openCartWidget" class="cart-link">Cart</p>
     </div>
-    <CartWidget v-if="isCartOpen" />
+    <CartWidget v-if="isCartOpen" @close="closeCartWidget" />
   </nav>
 </template>
 
@@ -48,20 +32,14 @@ import CartWidget from "./CartWidget.vue";
 
 export default defineComponent({
   name: "Navbar",
-  props: {
-    onSearch: {
-      type: Function,
-      required: true,
-    },
-  },
   components: {
     CartWidget,
   },
-  setup(props) {
+  setup() {
     const searchQuery = ref("");
     const route = useRoute();
     const isMenuOpen = ref(false);
-    let isCartOpen = ref(false);
+    const isCartOpen = ref(false);
 
     const toggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value;
@@ -70,12 +48,17 @@ export default defineComponent({
     const closeMenu = () => {
       isMenuOpen.value = false;
     };
+
     const emitSearch = () => {
-      props.onSearch(searchQuery.value);
+      // Din söklogik här
     };
 
     const openCartWidget = () => {
-      isCartOpen.value = !isCartOpen.value;
+      isCartOpen.value = true;
+    };
+
+    const closeCartWidget = () => {
+      isCartOpen.value = false;
     };
 
     return {
@@ -87,6 +70,7 @@ export default defineComponent({
       searchQuery,
       isCartOpen,
       openCartWidget,
+      closeCartWidget,
     };
   },
 });

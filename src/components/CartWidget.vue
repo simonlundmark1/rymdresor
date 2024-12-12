@@ -2,7 +2,7 @@
   <section class="cart-wrapper" v-if="cartStore.items.length > 0">
     <div class="cart-header">
       <h2>Din kundvagn</h2>
-      <button class="close-btn" @click="$emit('close')">&times;</button>
+      <button class="close-btn" @click="closeCart">&times;</button>
     </div>
     
     <div class="cart-items">
@@ -62,6 +62,10 @@ const formatDate = (date: string) => {
     month: 'long',
     day: 'numeric'
   });
+};
+
+const closeCart = () => {
+  emit('close');
 };
 </script>
 

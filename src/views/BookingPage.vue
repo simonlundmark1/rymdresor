@@ -4,7 +4,11 @@
     <div class="booking-content">
       <div v-if="selectedTrip" class="trip-preview">
         <div class="trip-image">
-          <img :src="selectedTrip.image[0]" :alt="selectedTrip.title">
+          <img :src="`/${selectedTrip.image[currentImage]}`" :alt="selectedTrip.title">
+          <div class="image-navigation">
+            <button @click="prevImage" :disabled="currentImage === 0">Föregående</button>
+            <button @click="nextImage" :disabled="currentImage === selectedTrip.image.length - 1">Nästa</button>
+          </div>
         </div>
         <div class="trip-info">
           <h2>{{ selectedTrip.title }}</h2>
@@ -45,6 +49,7 @@ const router = useRouter();
 const selectedTrip = ref<any>(null);
 const showBookingModal = ref(false);
 const showConfirmation = ref(false);
+const currentImage = ref(0);
 
 const fetchTripDetails = async () => {
   try {
@@ -66,6 +71,18 @@ const fetchTripDetails = async () => {
     }
   } catch (error) {
     console.error('Error fetching trip details:', error);
+  }
+};
+
+const prevImage = () => {
+  if (currentImage.value > 0) {
+    currentImage.value--;
+  }
+};
+
+const nextImage = () => {
+  if (selectedTrip.value && currentImage.value < selectedTrip.value.image.length - 1) {
+    currentImage.value++;
   }
 };
 
@@ -132,7 +149,7 @@ onMounted(() => {
 }
 
 .book-now-btn {
-  background: #4CAF50;
+  background: #E82E11;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -157,11 +174,11 @@ onMounted(() => {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: rgba(76, 175, 80, 0.9);
+  background: #E82E11;
   color: white;
   padding: 1rem;
   border-radius: 8px;
-  z-index: 1000;
+  z-index: 99999999999999999999999999999999999999999999;
   animation: slideIn 0.3s ease-out;
 }
 
@@ -179,7 +196,7 @@ onMounted(() => {
 
 .close-confirmation {
   background: white;
-  color: #4CAF50;
+  color: #E82E11;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -206,5 +223,29 @@ onMounted(() => {
   .trip-image {
     min-height: 250px;
   }
+}
+
+.image-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -3rem;
+}
+
+.image-navigation button {
+  background-color: #E82E11;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.image-navigation button:hover {
+  background-color: #e66f89;
+}
+
+.image-navigation button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 </style>
