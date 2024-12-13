@@ -1,6 +1,6 @@
 <template>
   <div
-       v-for="(experience, index) in experiences"
+       v-for="(experience, index) in combinedList"
     :key="experience.id"
     :data-ref="'experience-' + index"
     class="experience-card"
@@ -20,7 +20,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'SpaceExperienceList',
   props: {
-  experiences: {
+  combinedList: {
   type: Array as () => Array<{ id: number; title: string; description: string; image: string | string[]; price: number }>,
   required: true,
 }

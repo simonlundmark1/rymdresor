@@ -2,7 +2,7 @@ np<template>
   <nav>
     <div class="nav-items">
       <router-link to="/" class="logo">
-        <img src="/public/FRITTE.png" alt="Tidsresor Logo" />
+        <img src="/FRITTE.png" alt="Tidsresor Logo" />
       </router-link>
       <button class="hamburger" @click="toggleMenu">
         <span></span>

@@ -1,5 +1,4 @@
 <template>
-  <Navbar @search="handleSearch" />
   <main class="main-content">
     <h2 class="title">Paketerbjudanden</h2>
     <div class="card-wrapper">
@@ -26,7 +25,6 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import Navbar from "../components/Navbar.vue";
 import pkgs from "../data/offersData.json";
 import trips from "../data/data.json";
 import Reviews from "../components/Reviews.vue";
@@ -50,18 +48,15 @@ const bookPkg = (id: number) => {
   router.push({ name: "booking", params: { id } });
 };
 
-const handleSearch = (query: string) => {
-  console.log("Sökning efter:", query);
-};
 </script>
 
 <style scoped>
-/* .main-content {
-  background: url("/john-towner-7rlIPXTR6OI-unsplash.jpg") top no-repeat;
+.main-content {
+  /* background: url("/john-towner-7rlIPXTR6OI-unsplash.jpg") top no-repeat;
   background-size: cover;
-  text-align: center;
+  text-align: center; */
   min-height: 100vh;
-} */
+}
 /* .main-content {
   display: grid;
   grid-template-areas: "main aside";
@@ -146,16 +141,4 @@ const handleSearch = (query: string) => {
   overflow: hidden;
 }
 
-/* .package-hero {
-    background: url('/john-towner-7rlIPXTR6OI-unsplash.jpg') top no-repeat;
-    background-size: cover;
-    height: 100vh;
-  }
-  
-  .pkg-card {
-    border: 1px solid #ccc;
-    padding: 16px;
-    margin: 16px;
-  }
-   */
 </style>

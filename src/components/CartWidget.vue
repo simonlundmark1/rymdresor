@@ -2,7 +2,7 @@
   <section class="cart-wrapper" v-if="cartStore.items.length > 0">
     <div class="cart-header">
       <h2>Din kundvagn</h2>
-      <button class="close-btn" @click="closeCart">&times;</button>
+      <button class="close-btn" @click="closeCart">x</button>
     </div>
     
     <div class="cart-items">
@@ -13,7 +13,7 @@
         </div>
         
         <div class="item-details">
-          <p class="departure-date">Avresa: {{ formatDate(item.departureDate) }}</p>
+          <p class="departure-date">Avresa: {{ item.departureDate ? formatDate(item.departureDate) : 'Datum ej tillgängligt' }}</p>
           <p>Antal personer: {{ item.quantity }}</p>
           
           <div v-if="item.extras" class="extras">
@@ -48,7 +48,7 @@
 
 <script setup lang="ts">
 import { useCartStore } from '../stores/cart';
-import { RouterLink } from 'vue-router';
+import { RouterLink } from 'vue-router'
 
 const cartStore = useCartStore();
 
@@ -63,6 +63,9 @@ const formatDate = (date: string) => {
     day: 'numeric'
   });
 };
+const emit = defineEmits<{
+  (e: 'close'): void;
+}>();
 
 const closeCart = () => {
   emit('close');
