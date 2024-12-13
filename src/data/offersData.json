@@ -46,15 +46,6 @@
     "price": 125000
   },
   {
-    "id": 10,
-    "title": "London slogs av en ölsvämning (1814)",
-    "description": "I London exploderade ett enormt ölfat på en bryggeri, vilket frigjorde över 1,4 miljoner liter öl på gatorna. Översvämningen förstörde byggnader, och flera personer omkom – några drunknade faktiskt i öl.",
-    "image": ["london.jpg"],
-    "food": "All Inclusive",
-    "discount": "-40%",
-    "price": 96000
-  },
-  {
     "id": 11,
     "title": "Det stora strutskriget i Australien, 1932",
     "description": "Australien förklarade faktiskt krig mot strutsar. När emuer började invadera åkrar och förstöra grödor, skickade regeringen in militären med maskingevär för att hantera problemet. Trots detta vann strutsarna, och det blev ett pinsamt nederlag för människorna.",

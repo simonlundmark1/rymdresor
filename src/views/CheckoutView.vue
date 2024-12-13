@@ -1,8 +1,5 @@
 <template>
-  Navbar
-
   <div class="grid-container">
-
     <div class="checkout-container">
       <h1>Checkout</h1>
       <p>
@@ -14,11 +11,7 @@
         </li>
       </ul>
       <p>Total: {{ cartStore.totalPrice }}kr</p>
-
-      <!-- Button to open the modal -->
       <button class="checkout-button" @click="toggleModal">Betala</button>
-
-      <!-- Modal Component -->
       <CheckoutModal v-if="isModalOpen" @close="toggleModal" />
     </div>
   </div>
@@ -27,7 +20,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useCartStore } from "../stores/cart";
-import CheckoutModal from "../components/CheckoutModal.vue"; // Import the modal component
+import CheckoutModal from "../components/Checkoutmodal.vue";
 
 const cartStore = useCartStore();
 const isModalOpen = ref(false);
@@ -37,7 +30,6 @@ function toggleModal() {
 }
 </script>
 <style scoped>
-/* Define the grid layout */
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr;
@@ -68,7 +60,7 @@ p {
   font-size: 18px;
   margin-bottom: 10px;
 }
-/* Style the button */
+
 .checkout-button {
   background-color: limegreen;
   color: white;
@@ -85,7 +77,6 @@ p {
   transform: scale(1.1); /* Slightly larger */
 }
 
-/* Style the navbar */
 .footer {
   grid-column: 1 / -1; /* Span both columns */
   grid-row: 3; /* Place in the last row */

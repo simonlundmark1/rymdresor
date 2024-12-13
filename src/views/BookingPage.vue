@@ -1,6 +1,5 @@
 <template>
   <div class="booking-hero">
-    <Navbar/>
     <div class="booking-content">
       <div v-if="selectedTrip" class="trip-preview">
         <div class="trip-image">
@@ -41,7 +40,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import Navbar from '../components/Navbar.vue';
 import BookingModal from '../components/BookingModal.vue';
 
 const route = useRoute();

@@ -13,6 +13,12 @@
 import "./style/style.css";
 import "./style/components/footer.css";
 import Navbar from "./components/Navbar.vue";
+
+const handleSearch = () => {
+  console.log("search");
+  
+}
+
 </script>
 
 <style scoped>
