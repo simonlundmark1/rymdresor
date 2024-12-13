@@ -63,6 +63,7 @@ export default defineComponent({
       explosionVisible: false,
       explosionTimeoutId: null as number | null, // To store the timeout ID
       explosionIntervalId: null as number | null, // To store the interval ID
+      isReversing: null as number | null,
     };
   },
   methods: {

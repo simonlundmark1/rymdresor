@@ -3,33 +3,45 @@
     <div class="booking-content">
       <div v-if="selectedTrip" class="trip-preview">
         <div class="trip-image">
-          <img :src="`/${selectedTrip.image[currentImage]}`" :alt="selectedTrip.title">
+          <img
+            :src="`/${selectedTrip.image[currentImage]}`"
+            :alt="selectedTrip.title"
+          />
           <div class="image-navigation">
-            <button @click="prevImage" :disabled="currentImage === 0">Föregående</button>
-            <button @click="nextImage" :disabled="currentImage === selectedTrip.image.length - 1">Nästa</button>
+            <button @click="prevImage" :disabled="currentImage === 0">
+              Föregående
+            </button>
+            <button
+              @click="nextImage"
+              :disabled="currentImage === selectedTrip.image.length - 1"
+            >
+              Nästa
+            </button>
           </div>
         </div>
         <div class="trip-info">
           <h2>{{ selectedTrip.title }}</h2>
           <p>{{ selectedTrip.description }}</p>
-          <button class="book-now-btn" @click="showBookingModal = true">Boka nu</button>
+          <button class="book-now-btn" @click="showBookingModal = true">
+            Boka nu
+          </button>
         </div>
       </div>
-      <div v-else class="loading">
-        Laddar resa...
-      </div>
+      <div v-else class="loading">Laddar resa...</div>
     </div>
 
     <div v-if="showConfirmation" class="booking-confirmation">
       <div class="confirmation-content">
         <h3>Resan har lagts till i kundvagnen!</h3>
         <p>Du hittar din bokning i kundvagnen.</p>
-        <button @click="showConfirmation = false" class="close-confirmation">OK</button>
+        <button @click="showConfirmation = false" class="close-confirmation">
+          OK
+        </button>
       </div>
     </div>
 
-    <BookingModal 
-      v-if="showBookingModal && selectedTrip" 
+    <BookingModal
+      v-if="showBookingModal && selectedTrip"
       :selectedTrip="selectedTrip"
       @close="showBookingModal = false"
       @booked="handleBooked"
@@ -38,9 +50,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import BookingModal from '../components/BookingModal.vue';
+import { ref, onMounted } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import BookingModal from "../components/BookingModal.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -52,23 +64,23 @@ const currentImage = ref(0);
 const fetchTripDetails = async () => {
   try {
     const [resOne, resTwo] = await Promise.all([
-      fetch('/src/data/data.json'),
-      fetch('/src/data/offersData.json')
+      fetch("/src/data/data.json"),
+      fetch("/src/data/offersData.json"),
     ]);
-    
+
     const dataOne = await resOne.json();
     const dataTwo = await resTwo.json();
-    
+
     const allTrips = [...dataOne.experiences, ...dataTwo];
     const tripId = Number(route.params.id);
-    
-    selectedTrip.value = allTrips.find(trip => trip.id === tripId);
-    
+
+    selectedTrip.value = allTrips.find((trip) => trip.id === tripId);
+
     if (!selectedTrip.value) {
-      router.push('/');
+      router.push("/");
     }
   } catch (error) {
-    console.error('Error fetching trip details:', error);
+    console.error("Error fetching trip details:", error);
   }
 };
 
@@ -79,7 +91,10 @@ const prevImage = () => {
 };
 
 const nextImage = () => {
-  if (selectedTrip.value && currentImage.value < selectedTrip.value.image.length - 1) {
+  if (
+    selectedTrip.value &&
+    currentImage.value < selectedTrip.value.image.length - 1
+  ) {
     currentImage.value++;
   }
 };
@@ -101,7 +116,7 @@ onMounted(() => {
 .booking-hero {
   min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-              url('/jordan-steranka-2-MmXpeN8YE-unsplash.jpg') center/cover no-repeat;
+    url("/jordan-steranka-2-MmXpeN8YE-unsplash.jpg") center/cover no-repeat;
 }
 
 .booking-content {
@@ -117,11 +132,13 @@ onMounted(() => {
   overflow: hidden;
   display: flex;
   margin-top: 2rem;
+  height: 500px;
 }
 
 .trip-image {
   flex: 1;
   min-height: 400px;
+  height: 100%;
 }
 
 .trip-image img {
@@ -134,6 +151,8 @@ onMounted(() => {
   flex: 1;
   padding: 2rem;
   color: #333;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .trip-info h2 {
@@ -147,7 +166,7 @@ onMounted(() => {
 }
 
 .book-now-btn {
-  background: #E82E11;
+  background: #e82e11;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -172,7 +191,7 @@ onMounted(() => {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: #E82E11;
+  background: #e82e11;
   color: white;
   padding: 1rem;
   border-radius: 8px;
@@ -194,7 +213,7 @@ onMounted(() => {
 
 .close-confirmation {
   background: white;
-  color: #E82E11;
+  color: #e82e11;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -217,7 +236,7 @@ onMounted(() => {
   .trip-preview {
     flex-direction: column;
   }
-  
+
   .trip-image {
     min-height: 250px;
   }
@@ -230,7 +249,7 @@ onMounted(() => {
 }
 
 .image-navigation button {
-  background-color: #E82E11;
+  background-color: #e82e11;
   color: white;
   border: none;
   padding: 10px 15px;

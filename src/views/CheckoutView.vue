@@ -35,7 +35,7 @@ function toggleModal() {
   grid-template-columns: 1fr 2fr 1fr 1fr;
   grid-template-rows: 20% 40% auto;
   grid-gap: 20px;
-  margin: 20px;
+  /* margin: 20px; */
   min-height: 100vh;
 }
 
