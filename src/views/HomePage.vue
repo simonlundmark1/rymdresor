@@ -1,5 +1,8 @@
 <template>
-  <div class="navbar-bajs">
+  <div v-if="isLoading">
+    <SkeletonHome />
+  </div>
+  <div v-else class="navbar-bajs">
     <Banner />
     <Navbar  :onSearch ="handleSearch"/>
   </div>
@@ -48,6 +51,7 @@ import SpaceExperienceList from "../components/SpaceExperienceList.vue";
 import Navbar from "../components/Navbar.vue";
 import Banner from "../components/Banner.vue";
 import Clock from "../components/Clock.vue";
+import SkeletonHome from "../components/skeleton/SkeletonHome.vue";
 
 export default defineComponent({
   name: "HomePage",
@@ -56,9 +60,11 @@ export default defineComponent({
     Navbar,
     Banner,
     Clock,
+    SkeletonHome,
   },
   data() {
     return {
+      isLoading: true,
       searchQuery: "",
       combinedList: [] as any[],
       explosionVisible: false,
@@ -89,6 +95,7 @@ export default defineComponent({
       } else {
         console.warn("No matching experience found.");
       }
+      
     },
 
     triggerExplosion() {
@@ -142,6 +149,9 @@ export default defineComponent({
     } catch (error) {
       console.error("Failed to fetch data:", error);
     }
+    finally {
+        this.isLoading = false;
+      }
     this.startFlygplanAnimation();
   },
 
