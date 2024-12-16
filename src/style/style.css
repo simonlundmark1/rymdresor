@@ -1,7 +1,8 @@
-@font-face {
+/* @font-face {
   font-family: 'Apercu Bold';
   src: url('/Apercu-Bold.otf') format('opentype');
-}
+} */
+ 
 
 :root {
   font-family: 'Apercu Bold', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

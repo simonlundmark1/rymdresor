@@ -22,9 +22,10 @@
         <div class="trip-info">
           <h2>{{ selectedTrip.title }}</h2>
           <p>{{ selectedTrip.description }}</p>
-          <button class="book-now-btn" @click="showBookingModal = true">
+          <button class="book-now-btn" title="Boka nu" @click="showBookingModal = true">
             Boka nu
           </button>
+          <RouterLink to="/packages" class="back-btn" title="Tillbaka">Tillbaka</RouterLink>
         </div>
       </div>
       <div v-else class="loading">Laddar resa...</div>
@@ -56,10 +57,26 @@ import BookingModal from "../components/BookingModal.vue";
 
 const route = useRoute();
 const router = useRouter();
-const selectedTrip = ref<any>(null);
+const selectedTrip = ref<Trip | null>(null);
 const showBookingModal = ref(false);
 const showConfirmation = ref(false);
 const currentImage = ref(0);
+
+interface Trip {
+  id: number;
+  title: string;
+  description: string;
+  image: string[];
+  price: number;
+  food: string;
+  discount: string;
+  availableTrips: AvailableTrip[];
+}
+
+interface AvailableTrip {
+  date: string;
+  price: number;
+}
 
 const fetchTripDetails = async () => {
   try {
@@ -144,7 +161,7 @@ onMounted(() => {
 .trip-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .trip-info {
@@ -163,6 +180,8 @@ onMounted(() => {
 .trip-info p {
   margin-bottom: 2rem;
   line-height: 1.6;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .book-now-btn {
@@ -178,6 +197,13 @@ onMounted(() => {
 
 .book-now-btn:hover {
   background: #45a049;
+}
+.back-btn {
+  padding-left: 2rem;
+  text-decoration: none;
+}
+.back-btn:visited {
+  color: black;
 }
 
 .loading {
