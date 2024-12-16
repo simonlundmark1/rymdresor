@@ -1,6 +1,7 @@
 <template>
   <div class="navbar-bajs">
     <Banner />
+    <Navbar  :onSearch ="handleSearch"/>
   </div>
 
   <div class="home-hero">
