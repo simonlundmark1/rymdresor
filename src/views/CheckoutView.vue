@@ -2,7 +2,7 @@
   <div class="grid-container">
     <div class="checkout-container">
       <h1>Checkout</h1>
-      <p>
+      <p class="gratitudeText">
         Tack för din beställning, vänligen se över dina resor innan betalning.
       </p>
       <ul>
@@ -32,49 +32,75 @@ function toggleModal() {
 <style scoped>
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr;
-  grid-template-rows: 20% 40% auto;
+  grid-template-columns: 1fr minmax(auto, 800px) 1fr;
+  grid-template-rows: auto 1fr auto;
   grid-gap: 20px;
-  /* margin: 20px; */
+  padding: 20px;
   min-height: 100vh;
+  font-family: 'Arial', sans-serif;
 }
 
 .checkout-container {
+  margin: 100px 0 0 0;
   grid-column: 2;
   grid-row: 2;
-
-  padding: 20px;
-  color: white;
-  position: relative;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  text-align: center;
+  color: #333;
 }
 
 h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-  text-decoration: underline;
-  text-decoration-color: lightgreen; /* Light green underline */
-  text-decoration-thickness: 4px; /* Thicker underline */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #1e3c72;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1.5px;
+}
+
+.gratitudeText {
+  font-weight: bold;
 }
 
 p {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+li {
+  margin: 10px 0;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.1rem;
+  color: #444;
 }
 
 .checkout-button {
-  background-color: limegreen;
+  display: inline-block;
+  background: linear-gradient(135deg, #4caf50, #388e3c);
   color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 15px 30px;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  border-radius: 25px;
   cursor: pointer;
-  border-radius: 5px;
-  transition: transform 0.2s, background-color 0.2s;
+  transition: all 0.3s ease;
 }
 
 .checkout-button:hover {
-  background-color: #45a049; /* Darker green */
-  transform: scale(1.1); /* Slightly larger */
+  background: linear-gradient(135deg, #388e3c, #2e7d32);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .footer {
@@ -84,5 +110,15 @@ p {
   background-color: #222; /* Dark background */
   color: white;
   padding: 10px 0;
+}
+
+.footer a {
+  color: lightgreen;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: limegreen;
 }
 </style>
