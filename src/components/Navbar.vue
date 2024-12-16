@@ -57,7 +57,13 @@ export default defineComponent({
   components: {
     CartWidget,
   },
-  setup() {
+   props: {
+    onSearch: {
+      type: Function,
+      required: true,
+    },
+  },
+  setup(props) {
     const searchQuery = ref("");
     const route = useRoute();
     const isMenuOpen = ref(false);
@@ -72,7 +78,7 @@ export default defineComponent({
     };
 
     const emitSearch = () => {
-      // Din söklogik här
+     props.onSearch(searchQuery.value);
     };
 
     const openCartWidget = () => {
