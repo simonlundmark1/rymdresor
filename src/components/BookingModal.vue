@@ -10,6 +10,7 @@
         <div class="trip-details" v-if="selectedTrip">
           <h3>{{ selectedTrip.title }}</h3>
           <p>{{ selectedTrip.description }}</p>
+          <p v-if="selectedTrip.discount" class="discount-badge">{{ selectedTrip.discount }}</p>
         </div>
 
         <form @submit.prevent="handleBooking">
@@ -24,14 +25,39 @@
           </div>
 
           <div class="form-group">
-            <label>Antal personer:</label>
+            <label>Antal dagar:</label>
             <input 
               type="number" 
-              v-model.number="bookingDetails.passengers"
+              v-model.number="bookingDetails.days"
               min="1"
-              max="10"
+              max="30"
               required
             />
+          </div>
+
+          <div class="form-group passengers-group">
+            <label>Antal resenärer:</label>
+            <div class="passenger-inputs">
+              <div class="passenger-type">
+                <label>Vuxna (18+ år)</label>
+                <input 
+                  type="number" 
+                  v-model.number="bookingDetails.passengers.adults"
+                  min="1"
+                  max="10"
+                  required
+                />
+              </div>
+              <div class="passenger-type">
+                <label>Barn (0-17 år)</label>
+                <input 
+                  type="number" 
+                  v-model.number="bookingDetails.passengers.children"
+                  min="0"
+                  max="10"
+                />
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -41,19 +67,19 @@
                 <input 
                   type="checkbox"
                   v-model="bookingDetails.extras.insurance"
-                /> Tidsreseförsäkring (+1000 kr)
+                /> Tidsreseförsäkring (+1000 kr per person)
               </label>
               <label class="checkbox-label">
                 <input 
                   type="checkbox"
                   v-model="bookingDetails.extras.guide"
-                /> Personlig tidsguide (+2000 kr)
+                /> Personlig tidsguide (+2000 kr per dag)
               </label>
               <label class="checkbox-label">
                 <input 
                   type="checkbox"
                   v-model="bookingDetails.extras.equipment"
-                /> Tidsenlig utrustning (+1500 kr)
+                /> Tidsenlig utrustning (+1500 kr per person)
               </label>
             </div>
           </div>
@@ -61,10 +87,25 @@
           <div class="price-summary">
             <h4>Sammanfattning</h4>
             <div class="price-details">
-              <p>Grundpris: {{ formatPrice(basePrice) }}</p>
-              <p v-if="bookingDetails.extras.insurance">Försäkring: 1000 kr</p>
-              <p v-if="bookingDetails.extras.guide">Guide: 2000 kr</p>
-              <p v-if="bookingDetails.extras.equipment">Utrustning: 1500 kr</p>
+              <div class="base-price-details">
+                <p>Grundpris: {{ formatPrice(originalBasePrice) }}</p>
+                <p v-if="discount" class="discount-text">
+                  Rabatt ({{ discount }}): -{{ formatPrice(discountAmount) }}
+                </p>
+                <p v-if="discount" class="discounted-price">
+                  Efter rabatt: {{ formatPrice(basePrice) }}
+                </p>
+              </div>
+              <div class="passenger-summary">
+                <p>Vuxna: {{ bookingDetails.passengers.adults }} × {{ formatPrice(adultPrice) }}</p>
+                <p v-if="bookingDetails.passengers.children">Barn: {{ bookingDetails.passengers.children }} × {{ formatPrice(childPrice) }}</p>
+                <p>Antal dagar: {{ bookingDetails.days }}</p>
+              </div>
+              <div class="extras-summary" v-if="hasExtras">
+                <p v-if="bookingDetails.extras.insurance">Försäkring: {{ formatPrice(insurancePrice) }}</p>
+                <p v-if="bookingDetails.extras.guide">Guide: {{ formatPrice(guidePrice) }}</p>
+                <p v-if="bookingDetails.extras.equipment">Utrustning: {{ formatPrice(equipmentPrice) }}</p>
+              </div>
               <p class="total-price">Totalt: {{ formatPrice(totalPrice) }}</p>
             </div>
           </div>
@@ -89,6 +130,7 @@ const props = defineProps<{
     title: string;
     description: string;
     price: number;
+    discount?: string;
   }
 }>();
 
@@ -97,7 +139,11 @@ const cartStore = useCartStore();
 
 const bookingDetails = ref({
   departureDate: '',
-  passengers: 1,
+  days: 1,
+  passengers: {
+    adults: 1,
+    children: 0
+  },
   extras: {
     insurance: false,
     guide: false,
@@ -110,16 +156,54 @@ const minDate = computed(() => {
   return today.toISOString().split('T')[0];
 });
 
+const discount = computed(() => {
+  if (!props.selectedTrip.discount) return null;
+  const match = props.selectedTrip.discount.match(/(\d+)%/);
+  return match ? Number(match[1]) : null;
+});
+
+const totalPassengers = computed(() => {
+  return bookingDetails.value.passengers.adults + bookingDetails.value.passengers.children;
+});
+
+// Barn betalar 75% av vuxenpriset
+const adultPrice = computed(() => props.selectedTrip.price);
+const childPrice = computed(() => Math.round(props.selectedTrip.price * 0.75));
+
+const originalBasePrice = computed(() => {
+  return (
+    bookingDetails.value.passengers.adults * adultPrice.value +
+    bookingDetails.value.passengers.children * childPrice.value
+  ) * bookingDetails.value.days;
+});
+
+const discountAmount = computed(() => {
+  if (!discount.value) return 0;
+  return (originalBasePrice.value * discount.value) / 100;
+});
+
 const basePrice = computed(() => {
-  return props.selectedTrip.price * bookingDetails.value.passengers;
+  return originalBasePrice.value - discountAmount.value;
+});
+
+const insurancePrice = computed(() => {
+  return bookingDetails.value.extras.insurance ? 1000 * totalPassengers.value : 0;
+});
+
+const guidePrice = computed(() => {
+  return bookingDetails.value.extras.guide ? 2000 * bookingDetails.value.days : 0;
+});
+
+const equipmentPrice = computed(() => {
+  return bookingDetails.value.extras.equipment ? 1500 * totalPassengers.value : 0;
+});
+
+const hasExtras = computed(() => {
+  return Object.values(bookingDetails.value.extras).some(value => value);
 });
 
 const totalPrice = computed(() => {
-  let total = basePrice.value;
-  if (bookingDetails.value.extras.insurance) total += 1000;
-  if (bookingDetails.value.extras.guide) total += 2000;
-  if (bookingDetails.value.extras.equipment) total += 1500;
-  return total;
+  return basePrice.value + insurancePrice.value + guidePrice.value + equipmentPrice.value;
 });
 
 const formatPrice = (price: number) => {
@@ -131,9 +215,15 @@ const handleBooking = () => {
     id: props.selectedTrip.id,
     name: props.selectedTrip.title,
     price: totalPrice.value,
-    quantity: bookingDetails.value.passengers,
+    quantity: totalPassengers.value,
+    days: bookingDetails.value.days,
+    passengers: {
+      adults: bookingDetails.value.passengers.adults,
+      children: bookingDetails.value.passengers.children
+    },
     departureDate: bookingDetails.value.departureDate,
-    extras: bookingDetails.value.extras
+    extras: bookingDetails.value.extras,
+    discount: props.selectedTrip.discount
   };
   
   cartStore.addToCart(bookingItem);
@@ -193,6 +283,16 @@ const handleBooking = () => {
   border-bottom: 1px solid #eee;
 }
 
+.discount-badge {
+  display: inline-block;
+  background: #e82e11;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -201,6 +301,27 @@ const handleBooking = () => {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
+}
+
+.passengers-group {
+  margin-top: 1rem;
+}
+
+.passenger-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.passenger-type {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.passenger-type label {
+  font-size: 0.9rem;
+  color: #666;
 }
 
 input[type="date"],
@@ -233,6 +354,28 @@ input[type="number"] {
 
 .price-details {
   margin-top: 0.5rem;
+}
+
+.base-price-details {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.passenger-summary,
+.extras-summary {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.discount-text {
+  color: #e82e11;
+  font-weight: bold;
+}
+
+.discounted-price {
+  font-weight: bold;
+  color: #07700e;
 }
 
 .total-price {

@@ -14,7 +14,14 @@
         
         <div class="item-details">
           <p class="departure-date">Avresa: {{ item.departureDate ? formatDate(item.departureDate) : 'Datum ej tillgängligt' }}</p>
-          <p>Antal personer: {{ item.quantity }}</p>
+          <p>Antal dagar: {{ item.days }}</p>
+          <div class="passengers-info">
+            <p>Resenärer:</p>
+            <ul>
+              <li>{{ item.passengers.adults }} vuxna</li>
+              <li v-if="item.passengers.children">{{ item.passengers.children }} barn</li>
+            </ul>
+          </div>
           
           <div v-if="item.extras" class="extras">
             <p class="extras-title">Tillägg:</p>
@@ -24,8 +31,17 @@
               <li v-if="item.extras.equipment">Tidsenlig utrustning</li>
             </ul>
           </div>
-          
-          <p class="item-price">{{ formatPrice(item.price) }}</p>
+
+          <div class="price-info">
+            <div v-if="item.discount" class="price-details">
+              <p class="original-price">Ordinarie: {{ formatPrice(calculateOriginalPrice(item)) }}</p>
+              <p class="discount-badge">{{ item.discount }}</p>
+              <p class="final-price">Nu: {{ formatPrice(item.price) }}</p>
+            </div>
+            <div v-else>
+              <p class="item-price">{{ formatPrice(item.price) }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -63,6 +79,13 @@ const formatDate = (date: string) => {
     day: 'numeric'
   });
 };
+
+const calculateOriginalPrice = (item: any) => {
+  if (!item.discount) return item.price;
+  const discountPercent = Number(item.discount.match(/(\d+)%/)[1]);
+  return Math.round(item.price / (1 - discountPercent / 100));
+};
+
 const emit = defineEmits<{
   (e: 'close'): void;
 }>();
@@ -166,10 +189,44 @@ const closeCart = () => {
   font-size: 0.85rem;
 }
 
+.price-info {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.price-details {
+  text-align: right;
+}
+
+.original-price {
+  color: #666;
+  text-decoration: line-through;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.discount-badge {
+  background: #e82e11;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin: 0.25rem 0;
+  display: inline-block;
+}
+
+.final-price {
+  color: #07700e;
+  font-weight: bold;
+  margin: 0;
+}
+
 .item-price {
   text-align: right;
   font-weight: bold;
-  margin-top: 0.5rem;
+  margin: 0;
 }
 
 .cart-footer {

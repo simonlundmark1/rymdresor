@@ -5,6 +5,12 @@ interface CartItem {
   name: string;
   price: number;
   quantity: number;
+  days: number;
+  passengers: {
+    adults: number;
+    children: number;
+  };
+  discount?: string;
   departureDate?: string;
   extras?: {
     insurance: boolean;
@@ -24,7 +30,9 @@ export const useCartStore = defineStore('cart', {
     },
     
     itemCount: (state) => {
-      return state.items.reduce((count, item) => count + item.quantity, 0);
+      return state.items.reduce((count, item) => 
+        count + item.passengers.adults + (item.passengers.children || 0), 0
+      );
     }
   },
 
@@ -33,7 +41,9 @@ export const useCartStore = defineStore('cart', {
       const existingItem = this.items.find(i => 
         i.id === item.id && 
         i.departureDate === item.departureDate &&
-        JSON.stringify(i.extras) === JSON.stringify(item.extras)
+        i.days === item.days &&
+        JSON.stringify(i.extras) === JSON.stringify(item.extras) &&
+        JSON.stringify(i.passengers) === JSON.stringify(item.passengers)
       );
 
       if (existingItem) {
