@@ -8,7 +8,7 @@
       >
       <h2>{{ experience.title }}</h2>
       <p>{{ experience.description }}</p>
-      <button @click="bookPkg(experience.id)">Utforska</button>
+      <button @click="bookPkg(experience.id)" title="Utforska">Utforska</button>
   </div>
 </template>
 
@@ -96,6 +96,7 @@ getBackgroundStyle(image: string | string[] | null) {
 
 p{
   font-size: 30px;
+  font-weight: 700;
 }
   h2{
     font-size: 60px;

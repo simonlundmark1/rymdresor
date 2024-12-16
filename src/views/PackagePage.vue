@@ -14,9 +14,9 @@
             {{ trips.discount }}
           </p>
         </div>
-        <h3>{{ trips.title }}</h3>
+        <h3 class="trip-title">{{ trips.title }}</h3>
         <p class="description">{{ trips.description }}</p>
-        <button @click="bookPkg(trips.id)">Läs mer</button>
+        <button @click="bookPkg(trips.id)" title="Läs mer">Läs mer</button>
       </div>
     </div>
     <Reviews />
@@ -47,21 +47,12 @@ const getImageUrl = (imageName: string) => {
 const bookPkg = (id: number) => {
   router.push({ name: "booking", params: { id } });
 };
-
 </script>
 
 <style scoped>
 .main-content {
-  /* background: url("/john-towner-7rlIPXTR6OI-unsplash.jpg") top no-repeat;
-  background-size: cover;
-  text-align: center; */
   min-height: 100vh;
 }
-/* .main-content {
-  display: grid;
-  grid-template-areas: "main aside";
-  grid-template-columns: 2fr 1fr;
-} */
 .title {
   text-align: center;
   padding: 2rem;
@@ -77,15 +68,16 @@ const bookPkg = (id: number) => {
   margin: 1rem;
   padding: 20px;
   border: 1px solid #ccc;
-  /* width: 500px; */
   background-color: #f9f9f9;
   color: black;
   max-width: 350px;
-  height: 400px;
+  height: 450px;
   text-align: center;
 }
-.pkg-card h3 {
-  margin: 0 0 10px;
+.trip-title {
+  padding-top: 1rem;
+  text-align: center;
+  height: 80px;
 }
 .pkg-card button {
   margin-top: 1rem;
@@ -137,8 +129,11 @@ const bookPkg = (id: number) => {
 }
 .description {
   height: 70px;
-  text-overflow: clip;
+  text-overflow: ellipsis;
   overflow: hidden;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
-
 </style>
