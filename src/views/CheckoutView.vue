@@ -11,7 +11,7 @@
         </li>
       </ul>
       <p>Total: {{ cartStore.totalPrice }}kr</p>
-      <button class="checkout-button" @click="toggleModal">Betala</button>
+      <button class="checkout-button" @click="toggleModal" title="Betala">Betala</button>
       <CheckoutModal v-if="isModalOpen" @close="toggleModal" />
     </div>
   </div>

@@ -1,15 +1,15 @@
 <template>
   <section class="cart-wrapper" v-if="cartStore.items.length > 0">
     <div class="cart-header">
-      <h2>Din kundvagn</h2>
-      <button class="close-btn" @click="closeCart">x</button>
+      <h2>Din resväska</h2>
+      <button class="close-btn" @click="closeCart" title="Stäng">x</button>
     </div>
     
     <div class="cart-items">
       <div v-for="item in cartStore.items" :key="item.id" class="cart-item">
         <div class="item-header">
           <h3>{{ item.name }}</h3>
-          <button class="remove-btn" @click="cartStore.removeFromCart(item.id)">Ta bort</button>
+          <button class="remove-btn" @click="cartStore.removeFromCart(item.id)" title="Ta bort">Ta bort</button>
         </div>
         
         <div class="item-details">
@@ -17,7 +17,7 @@
           <p>Antal dagar: {{ item.days }}</p>
           <div class="passengers-info">
             <p>Resenärer:</p>
-            <ul>
+            <ul class="passenger">
               <li>{{ item.passengers.adults }} vuxna</li>
               <li v-if="item.passengers.children">{{ item.passengers.children }} barn</li>
             </ul>
@@ -53,8 +53,8 @@
       </div>
       
       <div class="cart-actions">
-        <button class="clear-btn" @click="cartStore.clearCart">Töm kundvagn</button>
-        <RouterLink to="/checkout" class="checkout-btn" @click="$emit('close')">
+        <button class="clear-btn" @click="cartStore.clearCart" title="Töm resväska">Töm resväskan</button>
+        <RouterLink to="/checkout" class="checkout-btn" @click="$emit('close')" title="Gå till kassan">
           Gå till kassan
         </RouterLink>
       </div>
@@ -167,6 +167,10 @@ const closeCart = () => {
 .departure-date {
   color: #666;
   margin-bottom: 0.5rem;
+}
+
+.passenger {
+  list-style: none;
 }
 
 .extras {

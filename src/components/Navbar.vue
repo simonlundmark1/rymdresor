@@ -39,7 +39,7 @@ np
       >
       <i
         @click="openCartWidget"
-        title="Kundkorg"
+        title="Din resväska"
         class="fa-solid fa-suitcase-rolling bag-icon"
       ></i>
     </div>
