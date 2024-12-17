@@ -257,7 +257,7 @@ const handleBooking = () => {
 }
 
 .modal-header {
-  background: #1a1a1a;
+  background:  red;
   color: white;
   padding: 1rem;
   display: flex;

@@ -8,14 +8,14 @@
     "discount": "-50%",
     "price": 176000
   },
-  
+
   {
     "id": 7,
     "title": "9/11",
     "description": "Att resa tillbaka till den 11 september 2001 i Manhattan är en oförglömlig och djupt gripande upplevelse. Du kommer att befinna dig mitt i en av de mest betydelsefulla och tragiska händelserna i modern historia.",
     "image": ["911.avif"],
     "food": "All Inclusive",
-    "discount": "-50%",
+    "discount": "-40%",
     "price": 176000
   },
 
@@ -25,7 +25,7 @@
     "description": "En framtid där mänskligheten har skapat en perfekt balans mellan teknologi, natur och samhälle. I Neo-Utopia, en stad som svävar fritt ovanför jorden, har vi övervunnit alla problem som vi i dagens värld står inför. Här är ingen fattigdom, inga konflikter, och naturen är i perfekt harmoni med de futuristiska byggnaderna som sträcker sig mot himlen.",
     "image": ["carousel.jpg", "santa.jpg"],
     "food": "All Inclusive",
-    "discount": "-50%",
+    "discount": "-25%",
     "price": 176000
   },
   {
