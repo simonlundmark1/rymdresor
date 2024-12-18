@@ -97,7 +97,7 @@ const closeCart = () => {
 
 <style scoped>
 .cart-wrapper {
-  position: absolute;
+  position: fixed;
   top: 80px;
   right: 20px;
   width: 400px;

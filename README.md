@@ -6,7 +6,7 @@ The application is developed with Vue, TypeScript to ensure code quality, Vue Ro
 
 ## Visuals
 
-![Start page](/public/firstpage.png "Stock market")
+![Start page](/public/time.png "Stock market")
 
 ## How to install
 
@@ -20,3 +20,6 @@ npm install
 npm run dev
 
 ```
+
+## Team
+Simon Lundmark, Gabriel Kassarp, Lucas Lifbom, Ruben Ahlin, Julia Paulin

@@ -5,8 +5,8 @@
       <div v-if="matchingTrips.length > 0" class="trip-preview">
         <div class="trip-image">
           <img
-            :src="`/${matchingTrips[currentImage].image[currentImage]}`"
-            :alt="matchingTrips[currentImage].title"
+            :src="`/${matchingTrips[0].image[currentImage]}`"
+            :alt="matchingTrips[0].title"
           />
           <div class="image-navigation">
             <button @click="prevImage" :disabled="currentImage === 0">
@@ -14,15 +14,15 @@
             </button>
             <button
               @click="nextImage"
-              :disabled="currentImage === matchingTrips[currentImage].image.length - 1"
+              :disabled="currentImage === matchingTrips[0].image.length - 1"
             >
               Nästa
             </button>
           </div>
         </div>
         <div class="trip-info">
-          <h2>{{ matchingTrips[currentImage].title }}</h2>
-          <p>{{ matchingTrips[currentImage].description }}</p>
+          <h2>{{ matchingTrips[0].title }}</h2>
+          <p>{{ matchingTrips[0].description }}</p>
           <button
             class="book-now-btn"
             title="Boka nu"
@@ -50,7 +50,7 @@
 
     <BookingModal
       v-if="showBookingModal && matchingTrips.length > 0"
-      :selectedTrip="matchingTrips[currentImage]"
+      :selectedTrip="matchingTrips[0]"
       @close="showBookingModal = false"
       @booked="handleBooked"
     />
@@ -65,7 +65,6 @@ import Navbar from "../components/Navbar.vue";
 
 const route = useRoute();
 const router = useRouter();
-const selectedTrip = ref<Trip | null>(null);
 const showBookingModal = ref(false);
 const showConfirmation = ref(false);
 const currentImage = ref(0);
@@ -130,8 +129,8 @@ const prevImage = () => {
 
 const nextImage = () => {
   if (
-    selectedTrip.value &&
-    currentImage.value < selectedTrip.value.image.length - 1
+    matchingTrips.value.length > 0 &&
+    currentImage.value < matchingTrips.value[0].image.length - 1
   ) {
     currentImage.value++;
   }
