@@ -30,7 +30,7 @@
           >
             Boka nu
           </button>
-          <RouterLink to="/packages" class="back-btn" title="Tillbaka"
+          <RouterLink to="/" class="back-btn" title="Tillbaka"
             >Tillbaka</RouterLink
           >
         </div>

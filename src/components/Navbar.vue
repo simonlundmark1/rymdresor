@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="nav-wrapper">
     <div class="nav-items">
       <router-link to="/" class="logo">
         <img src="/FRITTE.png" alt="Tidsresor Logo" title="Hem" />
@@ -19,7 +19,11 @@
         />
       </div>
     </div>
-    <Search v-if="isSearchOpen" @close="closeSearch" />
+    <div class="search-overlay" v-if="isSearchOpen">
+      <div class="search-container">
+        <Search @close="closeSearch" />
+      </div>
+    </div>
     <div class="nav-links" :class="{ open: isMenuOpen }">
       <i
         v-if="route.path === '/'"
@@ -138,11 +142,30 @@ nav {
 .nav-items {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1001;
+}
+.search-container {
+  margin-top: 10rem;
+  padding: 0 1rem;
+  animation: slideDown 0.3s ease-in-out;
 }
 
 .nav-links {
   width: auto;
   margin-left: 50%;
+  margin-right: 5rem;
   margin-top: 2.5rem;
   display: flex;
   display: flex;
@@ -210,7 +233,7 @@ nav {
   text-decoration: underline;
 }
 .logo img {
-  margin-left: 1rem;
+  margin: 0 1rem;
   width: 40%;
   overflow: hidden;
   max-height: 20%;

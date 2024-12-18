@@ -95,7 +95,6 @@ export default defineComponent({
       } else {
         console.warn("No matching experience found.");
       }
-      
     },
 
     triggerExplosion() {
@@ -148,8 +147,7 @@ export default defineComponent({
       this.combinedList = [...data1.experiences, ...data2];
     } catch (error) {
       console.error("Failed to fetch data:", error);
-    }
-    finally {
+    } finally {
       this.isLoading = false;
     }
     this.startFlygplanAnimation();

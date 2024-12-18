@@ -195,10 +195,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: darkred;
-}
-
 .close-btn {
   background: none;
   border: none;

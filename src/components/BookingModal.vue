@@ -289,9 +289,10 @@ const handleBooking = () => {
   border-radius: 8px;
   width: 90%;
   max-width: 600px;
-  max-height: 90vh;
+  max-height: 80vh;
   overflow-y: auto;
   color: #333;
+  margin-top: 6rem;
 }
 
 .modal-header {
