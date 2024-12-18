@@ -5,35 +5,60 @@
       "title": "Renässansen i Florens",
       "description": "Besök renässansens höjdpunkt och upplev mästerverk av Leonardo da Vinci och Michelangelo.",
       "image": ["renaissance.jpg"],
-      "price": 120000
+      "price": 120000,
+      "minDays": 5,
+      "maxDays": 14,
+      "maxAdults": 4,
+      "maxChildren": 2,
+      "destination": "Renässansen"
     },
     {
       "id": 2,
       "title": "Vikingatiden i Skandinavien",
       "description": "Segla med vikingaskepp och delta i en traditionell blotceremoni.",
       "image": ["viking.jpg"],
-      "price": 100000
+      "price": 100000,
+      "minDays": 5,
+      "maxDays": 14,
+      "maxAdults": 4,
+      "maxChildren": 2,
+      "destination": "Vikingatiden"
     },
     {
       "id": 3,
       "title": "Franska revolutionen i Paris",
       "description": "Bevittna historiens gång och delta i folkmassorna under revolutionens dagar.",
       "image": ["revolution.jpg"],
-      "price": 140000
+      "price": 140000,
+      "minDays": 5,
+      "maxDays": 14,
+      "maxAdults": 4,
+      "maxChildren": 2,
+      "destination": "Franska"
     },
     {
       "id": 4,
       "title": "Juraperioden - dinosauriernas tid",
       "description": "Utforska en värld fylld av dinosaurier och spännande växter.",
       "image": ["jurassic.jpg"],
-      "price": 200000
+      "price": 200000,
+      "minDays": 5,
+      "maxDays": 14,
+      "maxAdults": 4,
+      "maxChildren": 2,
+      "destination": "Juraperioden"
     },
     {
       "id": 5,
       "title": "Antikens Egypten",
       "description": "Bygg pyramiderna och lär dig hieroglyfernas hemligheter.",
       "image": ["/egypt.jpg"],
-      "price": 160000
+      "price": 160000,
+      "minDays": 5,
+      "maxDays": 14,
+      "maxAdults": 4,
+      "maxChildren": 2,
+      "destination": "Egypten"
     }
   ]
 }

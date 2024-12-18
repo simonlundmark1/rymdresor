@@ -10,6 +10,11 @@ const routes = [
     component: () => import("../views/BookingPage.vue"),
   },
   {
+    path: "/secondBookingPage",
+    name: "secondBookingPage",
+    component: () => import("../views/SecondBookingPage.vue"), // Byt ut mot din komponent
+  },
+  {
     path: "/packages",
     name: "package",
     component: () => import("../views/PackagePage.vue"),
@@ -19,7 +24,7 @@ const routes = [
     name: "experience",
     component: () => import("../components/SpaceExperienceDetail.vue"),
   },
-  {path: "/checkout", component: CheckoutView} 
+  { path: "/checkout", component: CheckoutView },
 ];
 
 const router = createRouter({

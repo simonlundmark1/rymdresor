@@ -36,6 +36,9 @@
 
 <script setup lang="ts">
 import { ref, reactive } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 interface Option {
   value: string;
@@ -67,13 +70,16 @@ const formFields = {
 const options: Options = {
   destination: [
     { value: "", text: "Välj Destination", disabled: true },
-    { value: "1", text: "Bränn Gävlebocken" },
-    { value: "2", text: "9/11" },
-    { value: "3", text: "Neo-Utopia" },
-    { value: "4", text: "Jul 2006" },
-    { value: "5", text: "Ölsvämning i London" },
-    { value: "6", text: "Strutskriget" },
-    { value: "7", text: "Renässansen" },
+    { value: "Renässansen", text: "Renässansen" },
+    { value: "Vikingatiden", text: "Vikingatiden" },
+    { value: "Franska", text: "Franska revolutionen" },
+    { value: "Juraperioden", text: "Juraperioden" },
+    { value: "Egypten", text: "Antikens Egypten" },
+    { value: "Gävle", text: "Bränn Gävlebocken" },
+    { value: "9/11", text: "9/11" },
+    { value: "Neo", text: "Neo-Utopia" },
+    { value: "2006", text: "Jul 2006" },
+    { value: "Strutskriget", text: "Strutskriget" },
   ],
   days: [
     { value: "", text: "Välj dagar", disabled: true },
@@ -113,24 +119,21 @@ const submitBooking = async () => {
 
   if (destination && days && adults && children) {
     try {
-      const res = await fetch("/src/data/data.json");
-      const data = await res.json();
-      results.value = data.experiences.flatMap((exp: any) =>
-        exp.availableTrips.filter((trip: any) => {
-          return (
-            trip.durationDays === parseInt(days) &&
-            trip.adults >= parseInt(adults) &&
-            trip.children >= parseInt(children)
-          );
-        })
-      );
-      submitted.value = true;
+      // Navigera till secondBookingPage med query params
+      router.push({
+        name: "secondBookingPage", // eller en route som du har definierat
+        query: {
+          destination,
+          days,
+          adults,
+          children,
+        },
+      });
     } catch (error) {
-      errorMessage.value = "Failed to fetch booking data";
-      console.error(error);
-    } finally {
-      loading.value = false;
+      console.error("Failed to navigate:", error);
     }
+  } else {
+    alert("Fyll i alla fält innan du går vidare!");
   }
 };
 

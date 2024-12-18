@@ -6,7 +6,12 @@
     "image": ["julbock.webp", "julbock2.webp"],
     "food": "All Inclusive",
     "discount": "-50%",
-    "price": 176000
+    "price": 176000,
+    "minDays": 5,
+    "maxDays": 14,
+    "maxAdults": 4,
+    "maxChildren": 2,
+    "destination": "Gävle"
   },
 
   {
@@ -16,7 +21,12 @@
     "image": ["911.avif"],
     "food": "All Inclusive",
     "discount": "-40%",
-    "price": 176000
+    "price": 176000,
+    "minDays": 5,
+    "maxDays": 14,
+    "maxAdults": 4,
+    "maxChildren": 2,
+    "destination": "9/11"
   },
 
   {
@@ -26,7 +36,12 @@
     "image": ["carousel.jpg", "santa.jpg"],
     "food": "All Inclusive",
     "discount": "-25%",
-    "price": 176000
+    "price": 176000,
+    "minDays": 5,
+    "maxDays": 14,
+    "maxAdults": 4,
+    "maxChildren": 2,
+    "destination": "Neo"
   },
   {
     "id": 9,
@@ -43,15 +58,25 @@
     ],
     "food": "All Inclusive",
     "discount": "-30%",
-    "price": 125000
+    "price": 125000,
+    "minDays": 5,
+    "maxDays": 14,
+    "maxAdults": 4,
+    "maxChildren": 2,
+    "destination": "2006"
   },
   {
-    "id": 11,
+    "id": 10,
     "title": "Det stora strutskriget i Australien, 1932",
     "description": "Australien förklarade faktiskt krig mot strutsar. När emuer började invadera åkrar och förstöra grödor, skickade regeringen in militären med maskingevär för att hantera problemet. Trots detta vann strutsarna, och det blev ett pinsamt nederlag för människorna.",
     "image": ["sydney.jpg"],
     "food": "All Inclusive",
     "discount": "-50%",
-    "price": 119000
+    "price": 119000,
+    "minDays": 5,
+    "maxDays": 14,
+    "maxAdults": 4,
+    "maxChildren": 2,
+    "destination": "Strutskriget"
   }
 ]

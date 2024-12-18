@@ -1,12 +1,12 @@
 <template>
-    <Navbar :onSearch="handleSearch"/>
+  <Navbar :onSearch="handleSearch" />
   <div class="booking-hero">
     <div class="booking-content">
-      <div v-if="selectedTrip" class="trip-preview">
+      <div v-if="matchingTrips.length > 0" class="trip-preview">
         <div class="trip-image">
           <img
-            :src="`/${selectedTrip.image[currentImage]}`"
-            :alt="selectedTrip.title"
+            :src="`/${matchingTrips[currentImage].image[currentImage]}`"
+            :alt="matchingTrips[currentImage].title"
           />
           <div class="image-navigation">
             <button @click="prevImage" :disabled="currentImage === 0">
@@ -14,19 +14,25 @@
             </button>
             <button
               @click="nextImage"
-              :disabled="currentImage === selectedTrip.image.length - 1"
+              :disabled="currentImage === matchingTrips[currentImage].image.length - 1"
             >
               Nästa
             </button>
           </div>
         </div>
         <div class="trip-info">
-          <h2>{{ selectedTrip.title }}</h2>
-          <p>{{ selectedTrip.description }}</p>
-          <button class="book-now-btn" title="Boka nu" @click="showBookingModal = true">
+          <h2>{{ matchingTrips[currentImage].title }}</h2>
+          <p>{{ matchingTrips[currentImage].description }}</p>
+          <button
+            class="book-now-btn"
+            title="Boka nu"
+            @click="showBookingModal = true"
+          >
             Boka nu
           </button>
-          <RouterLink to="/packages" class="back-btn" title="Tillbaka">Tillbaka</RouterLink>
+          <RouterLink to="/packages" class="back-btn" title="Tillbaka"
+            >Tillbaka</RouterLink
+          >
         </div>
       </div>
       <div v-else class="loading">Laddar resa...</div>
@@ -43,8 +49,8 @@
     </div>
 
     <BookingModal
-      v-if="showBookingModal && selectedTrip"
-      :selectedTrip="selectedTrip"
+      v-if="showBookingModal && matchingTrips.length > 0"
+      :selectedTrip="matchingTrips[currentImage]"
       @close="showBookingModal = false"
       @booked="handleBooked"
     />
@@ -63,6 +69,7 @@ const selectedTrip = ref<Trip | null>(null);
 const showBookingModal = ref(false);
 const showConfirmation = ref(false);
 const currentImage = ref(0);
+const matchingTrips = ref<Trip[]>([]);
 
 interface Trip {
   id: number;
@@ -90,11 +97,24 @@ const fetchTripDetails = async () => {
     const dataTwo = await resTwo.json();
 
     const allTrips = [...dataOne.experiences, ...dataTwo];
-    const tripId = Number(route.params.id);
 
-    selectedTrip.value = allTrips.find((trip) => trip.id === tripId);
+    const queryDestination = route.query.destination as string;
+    const queryDays = Number(route.query.days);
+    const queryAdults = Number(route.query.adults);
+    const queryChildren = Number(route.query.children);
 
-    if (!selectedTrip.value) {
+    matchingTrips.value = allTrips.filter((trip) => {
+      const matchesDestination = trip.destination === queryDestination;
+      const matchesDays =
+        queryDays >= trip.minDays && queryDays <= trip.maxDays;
+      const matchesAdults = queryAdults <= trip.maxAdults;
+      const matchesChildren = queryChildren <= trip.maxChildren;
+      return (
+        matchesDestination && matchesDays && matchesAdults && matchesChildren
+      );
+    });
+
+    if (!matchingTrips.value || matchingTrips.value.length === 0) {
       router.push("/");
     }
   } catch (error) {
