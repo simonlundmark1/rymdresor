@@ -1,4 +1,3 @@
-np
 <template>
   <nav>
     <div class="nav-items">
@@ -20,7 +19,14 @@ np
         />
       </div>
     </div>
+    <Search v-if="isSearchOpen" @close="closeSearch" />
     <div class="nav-links" :class="{ open: isMenuOpen }">
+      <i
+        v-if="route.path === '/'"
+        @click="openSearch"
+        class="fa-brands fa-searchengin search-icon"
+        title="Välj resa"
+      ></i>
       <router-link
         class="nav-link"
         to="/"
@@ -51,13 +57,15 @@ np
 import { defineComponent, ref } from "vue";
 import { useRoute } from "vue-router";
 import CartWidget from "./CartWidget.vue";
+import Search from "./Search.vue";
 
 export default defineComponent({
   name: "Navbar",
   components: {
     CartWidget,
+    Search,
   },
-   props: {
+  props: {
     onSearch: {
       type: Function,
       required: true,
@@ -68,6 +76,7 @@ export default defineComponent({
     const route = useRoute();
     const isMenuOpen = ref(false);
     const isCartOpen = ref(false);
+    const isSearchOpen = ref(false);
 
     const toggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value;
@@ -78,15 +87,21 @@ export default defineComponent({
     };
 
     const emitSearch = () => {
-     props.onSearch(searchQuery.value);
+      props.onSearch(searchQuery.value);
     };
 
     const openCartWidget = () => {
       isCartOpen.value = true;
     };
+    const openSearch = () => {
+      isSearchOpen.value = true;
+    };
 
     const closeCartWidget = () => {
       isCartOpen.value = false;
+    };
+    const closeSearch = () => {
+      isSearchOpen.value = false;
     };
 
     return {
@@ -99,6 +114,9 @@ export default defineComponent({
       isCartOpen,
       openCartWidget,
       closeCartWidget,
+      openSearch,
+      closeSearch,
+      isSearchOpen,
     };
   },
 });
@@ -111,7 +129,7 @@ nav {
   align-items: center;
   background-color: #def2f6;
   color: white;
-  padding: 0, 5rem;
+  padding: 0;
   border-bottom: 2px solid #e6d7d8;
   position: fixed;
   z-index: 9999;
@@ -127,10 +145,14 @@ nav {
   margin-left: 50%;
   margin-top: 2.5rem;
   display: flex;
-  flex-direction: row;
+  display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 2rem;
   font-weight: 700;
+}
+.search-icon {
+  color: black;
 }
 
 .search-input {
@@ -173,9 +195,14 @@ nav {
   animation: fadeIn 0.3s ease-in-out;
 }
 
+.search-icon {
+  font-size: 24px;
+  color: rgb(37, 36, 36);
+  cursor: pointer;
+}
 .nav-link {
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: rgb(37, 36, 36);
 }
 
 .nav-link:hover,

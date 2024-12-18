@@ -1,4 +1,5 @@
 <template>
+  <Navbar :onSearch="handleSearch"/>
   <div class="grid-container">
     <div class="checkout-container">
       <h1>Checkout</h1>
@@ -28,6 +29,9 @@ const isModalOpen = ref(false);
 function toggleModal() {
   isModalOpen.value = !isModalOpen.value;
 }
+const handleSearch = (query: string) => {
+  console.log(query);
+};
 </script>
 <style scoped>
 .grid-container {

@@ -1,4 +1,5 @@
 <template>
+  <Navbar :onSearch="handleSearch" />
   <main class="main-content">
     <h2 class="title">Paketerbjudanden</h2>
     <div class="card-wrapper">
@@ -28,6 +29,7 @@ import { useRouter } from "vue-router";
 import pkgs from "../data/offersData.json";
 import trips from "../data/data.json";
 import Reviews from "../components/Reviews.vue";
+import Navbar from "../components/Navbar.vue";
 
 const router = useRouter();
 
@@ -46,6 +48,10 @@ const getImageUrl = (imageName: string) => {
 
 const bookPkg = (id: number) => {
   router.push({ name: "booking", params: { id } });
+};
+
+const handleSearch = (query: string) => {
+  console.log(query);
 };
 </script>
 

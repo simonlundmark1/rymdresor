@@ -1,4 +1,5 @@
 <template>
+    <Navbar :onSearch="handleSearch"/>
   <div class="booking-hero">
     <div class="booking-content">
       <div v-if="selectedTrip" class="trip-preview">
@@ -33,8 +34,8 @@
 
     <div v-if="showConfirmation" class="booking-confirmation">
       <div class="confirmation-content">
-        <h3>Resan har lagts till i kundvagnen!</h3>
-        <p>Du hittar din bokning i kundvagnen.</p>
+        <h3>Resan har lagts till i resväskan!</h3>
+        <p>Du hittar din bokning i resväskan.</p>
         <button @click="showConfirmation = false" class="close-confirmation">
           OK
         </button>
@@ -54,6 +55,7 @@
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import BookingModal from "../components/BookingModal.vue";
+import Navbar from "../components/Navbar.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -127,6 +129,9 @@ const handleBooked = () => {
 onMounted(() => {
   fetchTripDetails();
 });
+const handleSearch = (query: string) => {
+  console.log(query);
+};
 </script>
 
 <style scoped>

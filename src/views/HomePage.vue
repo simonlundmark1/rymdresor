@@ -150,8 +150,8 @@ export default defineComponent({
       console.error("Failed to fetch data:", error);
     }
     finally {
-        this.isLoading = false;
-      }
+      this.isLoading = false;
+    }
     this.startFlygplanAnimation();
   },
 

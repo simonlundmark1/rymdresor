@@ -112,7 +112,7 @@
 
           <div class="button-group">
             <button type="button" class="cancel-btn" @click="$emit('close')">Avbryt</button>
-            <button type="submit" class="book-btn">Lägg till i kundvagn</button>
+            <button type="submit" class="book-btn">Lägg till i resväskan</button>
           </div>
         </form>
       </div>
